@@ -1,7 +1,7 @@
 import * as crypto from 'crypto'
-import { DecryptFunction } from 'src/interface/decrypt.interface'
+import { Decrypt } from 'src/interface/decrypt.interface'
 
-export const decrypt: DecryptFunction = (config) => (options) => {
+export const decrypt: Decrypt = (config) => (options) => {
   const { merchantKey } = config
 
   if (!merchantKey) {

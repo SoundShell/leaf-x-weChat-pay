@@ -5,7 +5,7 @@ import { ExecRequestOptions } from './request.interface'
  *
  * @param length Specify the length of the generated random string.
  */
-export interface GenerateNonceStringFunction {
+export interface GenerateNonceString {
   (length: number): string
 }
 
@@ -25,9 +25,9 @@ export interface FormatSecretKeyOptions {
 }
 
 /**
- * Formatting key function.
+ * Formatting key.
  */
-export interface FormatSecretKeyFunction {
+export interface FormatSecretKey {
   (options: FormatSecretKeyOptions): string
 }
 
@@ -47,12 +47,9 @@ export interface GenerateSignOptions {
 }
 
 /**
- * Generate signature function.
- *
- * @export
- * @interface GenerateSignFunction
+ * Sign.
  */
-export interface GenerateSignFunction {
+export interface Sign {
   (options: GenerateSignOptions): string
 }
 
@@ -97,9 +94,9 @@ export interface GetRequestTokenOptions {
 }
 
 /**
- * Get request token function.
+ * Get request token.
  */
-export interface GetRequestTokenFunction {
+export interface GetRequestToken {
   (options: GetRequestTokenOptions): string
 }
 
@@ -149,9 +146,9 @@ export interface GetTokenResult {
 }
 
 /**
- * Get javascript api token function.
+ * Get javascript api token.
  */
-export interface GetJavascriptApiTokenFunction {
+export interface GetJavascriptApiToken {
   (options: GetJavascriptApiTokenOptions): GetTokenResult
 }
 
@@ -181,9 +178,9 @@ export interface GetAppTokenOptions {
 }
 
 /**
- * Get the application function.
+ * Get the application.
  */
-export interface GetAppTokenFunction {
+export interface GetAppToken {
   (options: GetAppTokenOptions): GetTokenResult
 }
 
@@ -208,8 +205,8 @@ export interface ValidateSignOptions {
 }
 
 /**
- * Validate the signature function.
+ * Validate the signature.
  */
-export interface ValidateSignFunction {
+export interface ValidateSign {
   (options: ValidateSignOptions): boolean
 }

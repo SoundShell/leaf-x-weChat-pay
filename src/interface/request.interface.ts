@@ -42,8 +42,10 @@ export interface ExecRequestOptions {
 }
 
 /**
- * Execute the request function.
+ * Execute the request.
  */
-export interface ExecRequestFunction {
-  (config: WeChatPayOptions): (options: ExecRequestOptions) => Promise<unknown>
+export interface Request {
+  (weChatPayOptions: WeChatPayOptions): (
+    options: ExecRequestOptions
+  ) => Promise<unknown>
 }

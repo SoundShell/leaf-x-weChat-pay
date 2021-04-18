@@ -1,6 +1,6 @@
-'use strict'
+// 'use strict'
 
-import WeChatPay from './src/lib/weChatPay'
+// import WeChatPay from './src/src/weChatPay'
 
-export * from './src/interface/weChatPay.interface'
-export default WeChatPay
+// export * from './src/interface/weChatPay.interface'
+// export default WeChatPay

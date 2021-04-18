@@ -1,7 +1,7 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- *  Indexed payment options。
+ *  Indexed payment options.
  */
 export interface IndexPayOptions {
   /**
@@ -64,7 +64,7 @@ export interface IndexPayResult {
   /**
    * Payment bank.
    */
-  bankType?: string
+  bank_type?: string
 
   /**
    * Additional data.
@@ -74,7 +74,7 @@ export interface IndexPayResult {
   /**
    * Payment completion time.
    */
-  successTime?: string
+  success_time?: string
 
   /**
    * Payer information.
@@ -90,8 +90,8 @@ export interface IndexPayResult {
 /**
  * Indexed payment function.
  */
-export interface IndexPayFunction {
-  (config: WeChatPayOptions): (
+export interface IndexPay {
+  (weChatPayOptions: WeChatPayOptions): (
     options: IndexPayOptions
   ) => Promise<IndexPayResult>
 }

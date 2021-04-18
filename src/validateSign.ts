@@ -1,9 +1,9 @@
 import { Certificate } from '@fidm/x509'
 import * as fs from 'fs'
-import { ValidateSignFunction } from 'src/interface/validateSign.interface'
+import { ValidateSign } from 'src/interface/validateSign.interface'
 import { validateSign as execValidateSign } from './token'
 
-export const validateSign: ValidateSignFunction = (config) => ({
+export const validateSign: ValidateSign = (config) => ({
   nonceString,
   timestamp,
   body,

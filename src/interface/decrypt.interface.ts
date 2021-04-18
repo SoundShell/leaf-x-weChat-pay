@@ -31,9 +31,9 @@ export interface DecryptOptions {
 }
 
 /**
- * Decryption function.
+ * Decrypt.
  */
-export interface DecryptFunction {
+export interface Decrypt {
   (config: WeChatPayOptions): (
     options: DecryptOptions
   ) => string | Record<string, unknown>

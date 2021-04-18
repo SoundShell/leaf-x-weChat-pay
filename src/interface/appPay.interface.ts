@@ -21,7 +21,10 @@ export interface GetAppPayOptions extends OrderOptions {
   sceneInfo: SceneInfoOptions
 }
 
-export interface AppPayResult extends GetTokenResult {
+/**
+ * Get application payment results.
+ */
+export interface GetAppPayResult extends GetTokenResult {
   /**
    * Application id.
    */
@@ -44,10 +47,15 @@ export interface AppPayResult extends GetTokenResult {
 }
 
 /**
- * Get the application payment function.
+ * Initialize application payments.
  */
-export interface GetAppPayFunction {
-  (config: WeChatPayOptions): (
-    options: GetAppPayOptions
-  ) => Promise<AppPayResult>
+export interface InitAppPay {
+  (weChatPayOptions: WeChatPayOptions): GetAppPay
+}
+
+/**
+ * Get the application payment.
+ */
+export interface GetAppPay {
+  (options: GetAppPayOptions): Promise<GetAppPayResult>
 }

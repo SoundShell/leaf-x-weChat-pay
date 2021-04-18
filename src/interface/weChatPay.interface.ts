@@ -1,3 +1,5 @@
+import { GetAppPay } from './appPay.interface'
+
 /**
  * WeChat payment options.
  */
@@ -65,10 +67,20 @@ export interface WeChatPayOptions {
 }
 
 /**
- * WeChat payment function.
+ * WeChat payment.
  */
-export interface WeChatPayFunction {
-  (options: WeChatPayOptions): () => unknown
+export interface WeChatPay {
+  (options: WeChatPayOptions): () => {
+    /**
+     * Get the application payment.
+     */
+    getAppPay: GetAppPay
+
+    // /**
+    //  * Decrypt.
+    //  */
+    // decrypt: Decrypt
+  }
 }
 
 /**

@@ -31,8 +31,8 @@ export interface validateSignOptions {
 }
 
 /**
- * Validate the signature function.
+ * Validate the signature.
  */
-export interface ValidateSignFunction {
+export interface ValidateSign {
   (config: WeChatPayOptions): (options: validateSignOptions) => boolean
 }

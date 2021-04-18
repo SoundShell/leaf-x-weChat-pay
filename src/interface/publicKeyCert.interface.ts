@@ -52,8 +52,8 @@ export interface GetPublicKeyCertResult {
 }
 
 /**
- * Get public key certificate function.
+ * Get public key certificate.
  */
-export interface GetWeChatPublicKeyCertFunction {
-  (config: WeChatPayOptions): () => Promise<GetPublicKeyCertResult[]>
+export interface GetWeChatPublicKeyCert {
+  (weChatPayOptions: WeChatPayOptions): () => Promise<GetPublicKeyCertResult[]>
 }

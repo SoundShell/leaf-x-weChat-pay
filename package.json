@@ -14,14 +14,13 @@
   },
   "dependencies": {
     "@fidm/x509": "^1.2.1",
-    "isomorphic-fetch": "^3.0.0"
+    "@leaf-x/fetch": "^0.3.3",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "0.0.35",
     "@types/mocha": "^8.0.4",
     "@types/node": "^14.14.10",
     "@types/power-assert": "^1.5.3",
-    "@types/ramda": "^0.27.36",
     "@types/sinon": "^9.0.9",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
