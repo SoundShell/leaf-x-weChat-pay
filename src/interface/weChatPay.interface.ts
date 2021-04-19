@@ -1,9 +1,9 @@
 import { GetAppPay } from './appPay.interface'
 import { Decrypt } from './decrypt.interface'
 import { GetHtml5Pay } from './html5Pay.interface'
-import { IndexPay } from './indexPay.interface'
 import { GetJavascriptApiPay } from './javascriptApiPay.interface'
 import { GetPublicKeyCertificate } from './publicKeyCertificate.interface'
+import { ShowPay } from './showPay.interface'
 import { ValidateResponseSign } from './token.interface'
 
 /**
@@ -98,9 +98,9 @@ export interface WeChatPay {
     getPublicKeyCertificate: GetPublicKeyCertificate
 
     /**
-     * Indexed payment.
+     * Show payment.
      */
-    indexPay: IndexPay
+    showPay: ShowPay
 
     /**
      * Validate the signature.

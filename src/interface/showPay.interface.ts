@@ -1,9 +1,9 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- *  Indexed payment options.
+ *  Show payment options.
  */
-export interface IndexPayOptions {
+export interface ShowPayOptions {
   /**
    * WeChat payment order number.
    */
@@ -16,9 +16,9 @@ export interface IndexPayOptions {
 }
 
 /**
- * Indexed payment results.
+ * Show payment results.
  */
-export interface IndexPayResult {
+export interface ShowPayResult {
   /**
    * Application id.
    */
@@ -88,15 +88,15 @@ export interface IndexPayResult {
 }
 
 /**
- * Initialize indexed payment.
+ * Initialize show payment.
  */
-export interface InitIndexPay {
-  (options: WeChatPayOptions): IndexPay
+export interface InitShowPay {
+  (options: WeChatPayOptions): ShowPay
 }
 
 /**
- * Indexed payment.
+ * Show payment.
  */
-export interface IndexPay {
-  (options: IndexPayOptions): Promise<IndexPayResult>
+export interface ShowPay {
+  (options: ShowPayOptions): Promise<ShowPayResult>
 }

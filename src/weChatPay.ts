@@ -2,9 +2,9 @@ import { WeChatPay } from 'src/interface/weChatPay.interface'
 import { initAppPay } from './appPay'
 import { initDecrypt } from './decrypt'
 import { initHtml5Pay } from './html5Pay'
-import { initIndexPay } from './indexPay'
 import { initJavascriptApiPay } from './javascriptApiPay'
 import { initPublicKeyCertificate } from './publicKeyCertificate'
+import { initShowPay } from './showPay'
 import { initValidateResponseSign } from './token'
 
 export const weChatPay: WeChatPay = ({
@@ -17,7 +17,7 @@ export const weChatPay: WeChatPay = ({
   return () => ({
     getAppPay: initAppPay(options),
     getHtml5Pay: initHtml5Pay(options),
-    indexPay: initIndexPay(options),
+    showPay: initShowPay(options),
     getJavascriptApiPay: initJavascriptApiPay(options),
     getPublicKeyCertificate: initPublicKeyCertificate(options),
     validateResponseSign: initValidateResponseSign(options),

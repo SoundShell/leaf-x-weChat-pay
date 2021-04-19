@@ -3,8 +3,8 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
-describe('test/indexPay.test.ts', () => {
-  it('Should be the result of indexed payment.', async () => {
+describe('test/showPay.test.ts', () => {
+  it('Should be the result of show payment.', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -17,11 +17,11 @@ describe('test/indexPay.test.ts', () => {
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
     })()
 
-    const transactionResult = await pay.indexPay({
+    const transactionResult = await pay.showPay({
       transactionId: '4200000803202101145259110305'
     })
 
-    const outTradeNoResult = await pay.indexPay({
+    const outTradeNoResult = await pay.showPay({
       outTradeNo: '49180619299012608'
     })
 
