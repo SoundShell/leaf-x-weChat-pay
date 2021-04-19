@@ -50,7 +50,7 @@ export interface GetAppPayResult extends GetTokenResult {
  * Initialize application payments.
  */
 export interface InitAppPay {
-  (weChatPayOptions: WeChatPayOptions): GetAppPay
+  (options: WeChatPayOptions): GetAppPay
 }
 
 /**

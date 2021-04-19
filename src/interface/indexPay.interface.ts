@@ -32,22 +32,22 @@ export interface IndexPayResult {
   /**
    * Merchant order number.
    */
-  out_trade_no: string
+  outTradeNo: string
 
   /**
    * WeChat payment order number.
    */
-  transaction_id?: string
+  transactionId?: string
 
   /**
    * Transaction type.
    */
-  trade_type?: string
+  tradeType?: string
 
   /**
    * Transaction status.
    */
-  trade_state:
+  tradeState:
     | 'SUCCESS'
     | 'REFUND'
     | 'NOTPAY'
@@ -59,12 +59,12 @@ export interface IndexPayResult {
   /**
    * Transaction status description.
    */
-  trade_state_desc: string
+  tradeStateDesc: string
 
   /**
    * Payment bank.
    */
-  bank_type?: string
+  bankType?: string
 
   /**
    * Additional data.
@@ -74,7 +74,7 @@ export interface IndexPayResult {
   /**
    * Payment completion time.
    */
-  success_time?: string
+  successTime?: string
 
   /**
    * Payer information.
@@ -88,10 +88,15 @@ export interface IndexPayResult {
 }
 
 /**
- * Indexed payment function.
+ * Initialize indexed payment.
+ */
+export interface InitIndexPay {
+  (options: WeChatPayOptions): IndexPay
+}
+
+/**
+ * Indexed payment.
  */
 export interface IndexPay {
-  (weChatPayOptions: WeChatPayOptions): (
-    options: IndexPayOptions
-  ) => Promise<IndexPayResult>
+  (options: IndexPayOptions): Promise<IndexPayResult>
 }

@@ -65,10 +65,15 @@ export interface GetJavascriptApiPayResult {
 }
 
 /**
+ * Initialize Javascript payment.
+ */
+export interface InitJavascriptApiPay {
+  (options: WeChatPayOptions): GetJavascriptApiPay
+}
+
+/**
  * Get the Javascript payment.
  */
 export interface GetJavascriptApiPay {
-  (weChatPayOptions: WeChatPayOptions): (
-    options: GetJavascriptApiPayOptions
-  ) => Promise<GetJavascriptApiPayResult>
+  (options: GetJavascriptApiPayOptions): Promise<GetJavascriptApiPayResult>
 }

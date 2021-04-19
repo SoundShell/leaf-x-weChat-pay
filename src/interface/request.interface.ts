@@ -1,3 +1,4 @@
+import { HandleResponseResult } from '@leaf-x/fetch'
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
@@ -18,7 +19,6 @@ export interface ExecRequestOptions {
     | 'PURGE'
     | 'LINK'
     | 'UNLINK'
-    | undefined
 
   /**
    * Request headers.
@@ -42,10 +42,24 @@ export interface ExecRequestOptions {
 }
 
 /**
- * Execute the request.
+ * Initialize the request.
+ */
+export interface InitRequest {
+  (options: WeChatPayOptions): Request
+}
+
+/**
+ * Request.
  */
 export interface Request {
-  (weChatPayOptions: WeChatPayOptions): (
-    options: ExecRequestOptions
-  ) => Promise<unknown>
+  (options: ExecRequestOptions): Promise<unknown>
+}
+
+/**
+ * Validate the response.
+ */
+export interface ValidateResponse {
+  (options: WeChatPayOptions): (
+    options: HandleResponseResult
+  ) => Record<string, unknown>
 }

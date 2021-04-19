@@ -1,16 +1,16 @@
-import { GetHtml5Pay } from 'src/interface/html5Pay.interface'
-import { request } from './request'
+import { InitHtml5Pay } from 'src/interface/html5Pay.interface'
+import { initRequest } from './request'
 
-export const getHtml5Pay: GetHtml5Pay = (weChatPayOptions) => async (
+export const initHtml5Pay: InitHtml5Pay = (weChatPayOptions) => async (
   options
 ) => {
   const { url } = weChatPayOptions
-  const fetch = request(weChatPayOptions)
-  const { h5_url } = (await fetch({
+  const request = initRequest(weChatPayOptions)
+  const { h5Url } = (await request({
     method: 'POST',
     url: `${url}/v3/pay/transactions/h5`,
     body: options
-  })) as { h5_url: string }
+  })) as { h5Url: string }
 
-  return { url: h5_url }
+  return { url: h5Url }
 }

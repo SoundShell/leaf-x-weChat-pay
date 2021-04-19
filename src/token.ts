@@ -1,10 +1,14 @@
+import { Certificate } from '@fidm/x509'
 import * as crypto from 'crypto'
+import * as fs from 'fs'
+import * as snakeCaseKeys from 'snakecase-keys'
 import {
   FormatSecretKey,
   GenerateNonceString,
   GetAppToken,
   GetJavascriptApiToken,
   GetRequestToken,
+  InitValidateResponseSign,
   Sign,
   ValidateSign
 } from 'src/interface/token.interface'
@@ -33,19 +37,40 @@ const formatSecretKey: FormatSecretKey = ({ secretKey, type }) => {
   return `-----BEGIN ${type}-----\n${item.join('')}\n-----END ${type}-----`
 }
 
+const sign: Sign = ({ signString, privateKey }) => {
+  const key = formatSecretKey({ secretKey: privateKey, type: 'PRIVATE KEY' })
+
+  return crypto
+    .createSign('RSA-SHA256')
+    .update(signString, 'utf8')
+    .sign(key, 'base64')
+}
+
+const validateSign: ValidateSign = ({ publicKey, sign, signString }) => {
+  const key = formatSecretKey({ secretKey: publicKey, type: 'PUBLIC KEY' })
+
+  return crypto
+    .createVerify('RSA-SHA256')
+    .update(signString)
+    .verify(key, sign, 'base64')
+}
+
 export const getRequestToken: GetRequestToken = ({
   method,
   url,
-  body = '',
+  body = null,
   privateKey,
   merchantId,
   serialNo,
   timestamp
 }) => {
   const nonceString = generateNonceString(17)
-  const path = new URL(url).pathname
+  const { pathname, search } = new URL(url)
+  const path = `${pathname}${search}`
   const bodyString =
-    body && body instanceof Object ? JSON.stringify(body) : body
+    body && typeof body === 'object' && body !== null
+      ? JSON.stringify(body)
+      : body
 
   const signString = `${[method, path, timestamp, nonceString, bodyString].join(
     '\n'
@@ -90,20 +115,38 @@ export const getAppToken: GetAppToken = ({
   return { nonceString, timestamp, sign: sign({ signString, privateKey }) }
 }
 
-export const validateSign: ValidateSign = ({ publicKey, sign, signString }) => {
-  const key = formatSecretKey({ secretKey: publicKey, type: 'PUBLIC KEY' })
+export const initValidateResponseSign: InitValidateResponseSign = ({
+  publicCertificateDir
+}) => ({ nonceString, timestamp, body, sign, serialNo }) => {
+  if (!publicCertificateDir) {
+    throw new Error('Missing public key certificate directory.')
+  }
 
-  return crypto
-    .createVerify('RSA-SHA256')
-    .update(signString)
-    .verify(key, sign, 'base64')
-}
+  const signString = `${timestamp}\n${nonceString}\n${JSON.stringify(
+    snakeCaseKeys(body, { deep: true })
+  )}\n`
+  const certificateNames = fs.readdirSync(publicCertificateDir)
 
-export const sign: Sign = ({ signString, privateKey }) => {
-  const key = formatSecretKey({ secretKey: privateKey, type: 'PRIVATE KEY' })
+  let certificate!: string
 
-  return crypto
-    .createSign('RSA-SHA256')
-    .update(signString, 'utf8')
-    .sign(key, 'base64')
+  certificateNames.forEach((certificateName) => {
+    const path = `${publicCertificateDir}/${certificateName}`
+    const item = Certificate.fromPEM(fs.readFileSync(path))
+
+    if (item.serialNumber.toUpperCase() === serialNo) {
+      certificate = item.publicKeyRaw.toString('base64')
+    }
+
+    const unlink = new Date(item.validTo).valueOf() <= Date.now()
+
+    if (unlink) {
+      fs.unlinkSync(path)
+    }
+  })
+
+  if (!certificate) {
+    throw new Error('No valid certificate found.')
+  }
+
+  return validateSign({ sign, signString, publicKey: certificate })
 }

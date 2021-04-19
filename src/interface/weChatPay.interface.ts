@@ -1,4 +1,10 @@
 import { GetAppPay } from './appPay.interface'
+import { Decrypt } from './decrypt.interface'
+import { GetHtml5Pay } from './html5Pay.interface'
+import { IndexPay } from './indexPay.interface'
+import { GetJavascriptApiPay } from './javascriptApiPay.interface'
+import { GetPublicKeyCertificate } from './publicKeyCertificate.interface'
+import { ValidateResponseSign } from './token.interface'
 
 /**
  * WeChat payment options.
@@ -25,7 +31,7 @@ export interface WeChatPayOptions {
   merchantKey?: string
 
   /**
-   * Mode.
+   * Encryption algorithm mode.
    *
    * Default WECHATPAY2-SHA256-RSA2048
    */
@@ -39,12 +45,12 @@ export interface WeChatPayOptions {
   /**
    * Public key certificate path.
    */
-  publicCertPath?: string
+  publicCertificatePath?: string
 
   /**
    * Public key certificate directory.
    */
-  publicCertDir?: string
+  publicCertificateDir?: string
 
   /**
    * Certificate number.
@@ -76,10 +82,35 @@ export interface WeChatPay {
      */
     getAppPay: GetAppPay
 
-    // /**
-    //  * Decrypt.
-    //  */
-    // decrypt: Decrypt
+    /**
+     * Get html5 payment.
+     */
+    getHtml5Pay: GetHtml5Pay
+
+    /**
+     * Get the Javascript payment.
+     */
+    getJavascriptApiPay: GetJavascriptApiPay
+
+    /**
+     * Get public key certificate.
+     */
+    getPublicKeyCertificate: GetPublicKeyCertificate
+
+    /**
+     * Indexed payment.
+     */
+    indexPay: IndexPay
+
+    /**
+     * Validate the signature.
+     */
+    validateResponseSign: ValidateResponseSign
+
+    /**
+     * Decrypt.
+     */
+    decrypt: Decrypt
   }
 }
 

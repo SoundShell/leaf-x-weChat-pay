@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "@fidm/x509": "^1.2.1",
-    "@leaf-x/fetch": "^0.3.3",
-    "moment": "^2.29.1"
+    "@leaf-x/fetch": "^0.3.4",
+    "camelcase-keys": "^6.2.2",
+    "snakecase-keys": "^3.2.1"
   },
   "devDependencies": {
+    "moment": "^2.29.1",
     "@types/mocha": "^8.0.4",
     "@types/node": "^14.14.10",
     "@types/power-assert": "^1.5.3",

@@ -1,5 +1,5 @@
 import { InitAppPay } from 'src/interface/appPay.interface'
-import { request } from './request'
+import { initRequest } from './request'
 import { getAppToken } from './token'
 
 export const initAppPay: InitAppPay = (weChatPayOptions) => async (options) => {
@@ -9,16 +9,16 @@ export const initAppPay: InitAppPay = (weChatPayOptions) => async (options) => {
     throw new Error('Missing app id.')
   }
 
-  const fetch = request(weChatPayOptions)
-  const { prepay_id } = (await fetch({
+  const request = initRequest(weChatPayOptions)
+  const { prepayId } = (await request({
     method: 'POST',
     url: `${url}/v3/pay/transactions/app`,
     body: options
-  })) as { prepay_id: string }
+  })) as { prepayId: string }
 
   const token = getAppToken({
     appId,
-    prepayId: prepay_id,
+    prepayId,
     privateKey,
     timestamp: `${parseInt((Date.now() / 1000).toString())}`
   })
@@ -26,7 +26,7 @@ export const initAppPay: InitAppPay = (weChatPayOptions) => async (options) => {
   return {
     appId,
     partnerId: merchantId,
-    prepayId: prepay_id,
+    prepayId,
     package: 'Sign=WXPay',
     ...token
   }

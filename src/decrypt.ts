@@ -1,14 +1,16 @@
+import * as camelCaseKeys from 'camelcase-keys'
 import * as crypto from 'crypto'
-import { Decrypt } from 'src/interface/decrypt.interface'
+import { InitDecrypt } from 'src/interface/decrypt.interface'
 
-export const decrypt: Decrypt = (config) => (options) => {
-  const { merchantKey } = config
-
+export const initDecrypt: InitDecrypt = ({ merchantKey }) => ({
+  formatJson = false,
+  ...args
+}) => {
   if (!merchantKey) {
     throw new Error('Missing merchant key.')
   }
 
-  const { nonce, associated_data: associatedData, ciphertext } = options
+  const { nonce, associatedData, ciphertext } = args
   const cipherTextBuffer = Buffer.from(ciphertext, 'base64')
   const authTag = cipherTextBuffer.slice(cipherTextBuffer.length - 16)
   const data = cipherTextBuffer.slice(0, cipherTextBuffer.length - 16)
@@ -24,5 +26,7 @@ export const decrypt: Decrypt = (config) => (options) => {
 
   decipher.final()
 
-  return decryptString
+  return formatJson
+    ? camelCaseKeys(JSON.parse(decryptString), { deep: true })
+    : decryptString
 }

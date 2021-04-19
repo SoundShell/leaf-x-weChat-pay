@@ -17,24 +17,34 @@ export interface DecryptOptions {
   /**
    * Additional data.
    */
-  associated_data?: string
+  associatedData?: string
 
   /**
    * Original type.
    */
-  original_type: string
+  originalType: string
 
   /**
    * Random string.
    */
   nonce: string
+
+  /**
+   * Whether to convert to JSON.
+   */
+  formatJson?: boolean
+}
+
+/**
+ * Initialize decrypt.
+ */
+export interface InitDecrypt {
+  (options: WeChatPayOptions): Decrypt
 }
 
 /**
  * Decrypt.
  */
 export interface Decrypt {
-  (config: WeChatPayOptions): (
-    options: DecryptOptions
-  ) => string | Record<string, unknown>
+  (options: DecryptOptions): string | Record<string, unknown>
 }

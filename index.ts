@@ -1,6 +1,11 @@
-// 'use strict'
-
-// import WeChatPay from './src/src/weChatPay'
-
-// export * from './src/interface/weChatPay.interface'
-// export default WeChatPay
+import { weChatPay } from './src/weChatPay'
+export * from './src/interface/appPay.interface'
+export * from './src/interface/decrypt.interface'
+export * from './src/interface/html5Pay.interface'
+export * from './src/interface/indexPay.interface'
+export * from './src/interface/javascriptApiPay.interface'
+export * from './src/interface/publicKeyCertificate.interface'
+export * from './src/interface/request.interface'
+export * from './src/interface/token.interface'
+export * from './src/interface/weChatPay.interface'
+export default weChatPay

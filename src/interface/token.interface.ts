@@ -1,4 +1,5 @@
 import { ExecRequestOptions } from './request.interface'
+import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
  * Generate random string function.
@@ -209,4 +210,48 @@ export interface ValidateSignOptions {
  */
 export interface ValidateSign {
   (options: ValidateSignOptions): boolean
+}
+
+/**
+ * Validate the response signature options.
+ */
+export interface ValidateSignResponseOptions {
+  /**
+   * Random string.
+   */
+  nonceString: string
+
+  /**
+   * Timestamp.
+   */
+  timestamp: string
+
+  /**
+   * Response body.
+   */
+  body: Record<string, unknown>
+
+  /**
+   * Signature.
+   */
+  sign: string
+
+  /**
+   * Certificate number.
+   */
+  serialNo: string
+}
+
+/**
+ * Initialization response validate the signature.
+ */
+export interface InitValidateResponseSign {
+  (options: WeChatPayOptions): ValidateResponseSign
+}
+
+/**
+ * Validate the signature.
+ */
+export interface ValidateResponseSign {
+  (options: ValidateSignResponseOptions): boolean
 }

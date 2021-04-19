@@ -36,10 +36,15 @@ export interface Html5PayOptions extends OrderOptions {
 }
 
 /**
- * Html5 payment.
+ * Initialize html5 payment.
+ */
+export interface InitHtml5Pay {
+  (options: WeChatPayOptions): GetHtml5Pay
+}
+
+/**
+ * Get html5 payment.
  */
 export interface GetHtml5Pay {
-  (weChatPayOptions: WeChatPayOptions): (
-    options: Html5PayOptions
-  ) => Promise<{ url: string }>
+  (options: Html5PayOptions): Promise<{ url: string }>
 }

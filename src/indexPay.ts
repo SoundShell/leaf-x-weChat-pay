@@ -1,14 +1,14 @@
-import { IndexPay, IndexPayResult } from 'src/interface/indexPay.interface'
-import { request } from './request'
+import { IndexPayResult, InitIndexPay } from 'src/interface/indexPay.interface'
+import { initRequest } from './request'
 
-export const indexPay: IndexPay = (weChatPayOptions) => ({
+export const initIndexPay: InitIndexPay = (weChatPayOptions) => ({
   transactionId,
   outTradeNo
 }) => {
   const { url, merchantId } = weChatPayOptions
-  const fetch = request(weChatPayOptions)
+  const request = initRequest(weChatPayOptions)
 
-  return fetch({
+  return request({
     method: 'GET',
     url: transactionId
       ? `${url}/v3/pay/transactions/id/${transactionId}?mchid=${merchantId}`

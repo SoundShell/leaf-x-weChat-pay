@@ -1,8 +1,8 @@
-import { GetJavascriptApiPay } from 'src/interface/javascriptApiPay.interface'
-import { request } from './request'
+import { InitJavascriptApiPay } from 'src/interface/javascriptApiPay.interface'
+import { initRequest } from './request'
 import { getJavascriptApiToken } from './token'
 
-export const getJavascriptApiPay: GetJavascriptApiPay = (
+export const initJavascriptApiPay: InitJavascriptApiPay = (
   weChatPayOptions
 ) => async (options) => {
   const { url, publicAppId, privateKey } = weChatPayOptions
@@ -11,15 +11,15 @@ export const getJavascriptApiPay: GetJavascriptApiPay = (
     throw new Error('Missing public app id.')
   }
 
-  const fetch = request(weChatPayOptions)
-  const { prepay_id } = (await fetch({
+  const request = initRequest(weChatPayOptions)
+  const { prepayId } = (await request({
     method: 'POST',
     url: `${url}/v3/pay/transactions/jsapi`,
     body: options,
     publicApp: true
-  })) as { prepay_id: string }
+  })) as { prepayId: string }
 
-  const prepay = Object.freeze({ prepay_id })
+  const prepay = Object.freeze({ prepayId })
   const prepayString = Object.keys(prepay)
     .map((key) => `${key}=${prepay[key as keyof typeof prepay]}`)
     .toString()
