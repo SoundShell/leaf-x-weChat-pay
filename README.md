@@ -16,7 +16,7 @@ WeChat pay V3 API.
 | merchantKey           | String | Required                      | Merchant key.                     |
 | schema                | string | WECHATPAY2-SHA256-RSA2048     | Encryption algorithm mode.        |
 | privateKey            | String | Required                      | Private key.                      |
-| publicCertificatePath | String |                               | Public key certificate path..     |
+| publicCertificatePath | String |                               | Public key certificate path.      |
 | publicCertificateDir  | String |                               | Public key certificate directory. |
 | serialNo              | String | Required                      | Certificate number.               |
 | url                   | String | https://api.mch.weixin.qq.com | Api url address.                  |
@@ -25,7 +25,7 @@ WeChat pay V3 API.
 ## Usage
 
 ```typescript
-import * as weChat from '@leaf-x/we-chat-pay'
+import { weChat } from '@leaf-x/we-chat-pay'
 
 const pay = weChat({
   appId: 'wx3fb476821568i',
@@ -37,7 +37,7 @@ const pay = weChat({
     'ascii'
   ),
   publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-})()
+})
 
 const result = await pay.getAppPay({
   description: 'test',

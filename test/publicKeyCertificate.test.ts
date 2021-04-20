@@ -15,7 +15,7 @@ describe('test/publicKeyCertificate.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = await pay.getPublicKeyCertificate()
 

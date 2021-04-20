@@ -1,9 +1,9 @@
-import { WeChatPay } from 'src/interface/weChatPay.interface'
-import { initAppPay } from './appPay'
+import { WeChatPay } from '../src/interface/weChatPay.interface'
+import { initGetAppPay } from './appPay'
 import { initDecrypt } from './decrypt'
-import { initHtml5Pay } from './html5Pay'
-import { initJavascriptApiPay } from './javascriptApiPay'
-import { initPublicKeyCertificate } from './publicKeyCertificate'
+import { initGetHtml5Pay } from './html5Pay'
+import { initGetJavascriptApiPay } from './javascriptApiPay'
+import { initGetPublicKeyCertificate } from './publicKeyCertificate'
 import { initShowPay } from './showPay'
 import { initValidateResponseSign } from './token'
 
@@ -14,13 +14,13 @@ export const weChatPay: WeChatPay = ({
 }) => {
   const options = { url, schema, ...args }
 
-  return () => ({
-    getAppPay: initAppPay(options),
-    getHtml5Pay: initHtml5Pay(options),
+  return {
+    getAppPay: initGetAppPay(options),
+    getHtml5Pay: initGetHtml5Pay(options),
     showPay: initShowPay(options),
-    getJavascriptApiPay: initJavascriptApiPay(options),
-    getPublicKeyCertificate: initPublicKeyCertificate(options),
+    getJavascriptApiPay: initGetJavascriptApiPay(options),
+    getPublicKeyCertificate: initGetPublicKeyCertificate(options),
     validateResponseSign: initValidateResponseSign(options),
     decrypt: initDecrypt(options)
-  })
+  }
 }

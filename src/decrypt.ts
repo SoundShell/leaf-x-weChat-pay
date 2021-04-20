@@ -1,6 +1,6 @@
 import * as camelCaseKeys from 'camelcase-keys'
 import * as crypto from 'crypto'
-import { InitDecrypt } from 'src/interface/decrypt.interface'
+import { InitDecrypt } from '../src/interface/decrypt.interface'
 
 export const initDecrypt: InitDecrypt = ({ merchantKey }) => ({
   formatJson = false,

@@ -89,6 +89,9 @@ export interface ShowPayResult {
 
 /**
  * Initialize show payment.
+ *
+ * @param options WeChatPayOptions
+ * @return ShowPay
  */
 export interface InitShowPay {
   (options: WeChatPayOptions): ShowPay
@@ -96,6 +99,9 @@ export interface InitShowPay {
 
 /**
  * Show payment.
+ *
+ * @param options ShowPayOptions
+ * @return Promise<ShowPayResult>
  */
 export interface ShowPay {
   (options: ShowPayOptions): Promise<ShowPayResult>

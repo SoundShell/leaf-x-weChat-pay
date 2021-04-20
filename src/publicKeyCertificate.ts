@@ -1,11 +1,11 @@
 import {
-  InitPublicKeyCertificate,
+  InitGetPublicKeyCertificate,
   WeChatPublicKeyCertificate
-} from 'src/interface/publicKeyCertificate.interface'
+} from '../src/interface/publicKeyCertificate.interface'
 import { initDecrypt } from './decrypt'
 import { initRequest } from './request'
 
-export const initPublicKeyCertificate: InitPublicKeyCertificate = (
+export const initGetPublicKeyCertificate: InitGetPublicKeyCertificate = (
   weChatPayOptions
 ) => async () => {
   const { url } = weChatPayOptions

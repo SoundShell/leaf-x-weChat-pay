@@ -67,7 +67,7 @@ describe('test/token.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = pay.validateResponseSign({
       serialNo: '75ccb679260e5ee60febbf314237c746dc85798a'.toUpperCase(),

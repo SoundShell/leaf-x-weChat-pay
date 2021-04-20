@@ -8,6 +8,8 @@ import {
 
 /**
  * Get application payment options.
+ *
+ * @extends OrderOptions
  */
 export interface GetAppPayOptions extends OrderOptions {
   /**
@@ -23,6 +25,8 @@ export interface GetAppPayOptions extends OrderOptions {
 
 /**
  * Get application payment results.
+ *
+ * @extends GetTokenResult
  */
 export interface GetAppPayResult extends GetTokenResult {
   /**
@@ -47,14 +51,20 @@ export interface GetAppPayResult extends GetTokenResult {
 }
 
 /**
- * Initialize application payments.
+ * Initialize get application payment.
+ *
+ * @param options WeChatPayOptions
+ * @return GetAppPay
  */
-export interface InitAppPay {
+export interface InitGetAppPay {
   (options: WeChatPayOptions): GetAppPay
 }
 
 /**
  * Get the application payment.
+ *
+ * @param options GetAppPayOptions
+ * @return Promise<GetAppPayResult>
  */
 export interface GetAppPay {
   (options: GetAppPayOptions): Promise<GetAppPayResult>

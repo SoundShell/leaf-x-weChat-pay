@@ -1,8 +1,8 @@
-import { InitJavascriptApiPay } from 'src/interface/javascriptApiPay.interface'
+import { InitGetJavascriptApiPay } from '../src/interface/javascriptApiPay.interface'
 import { initRequest } from './request'
 import { getJavascriptApiToken } from './token'
 
-export const initJavascriptApiPay: InitJavascriptApiPay = (
+export const initGetJavascriptApiPay: InitGetJavascriptApiPay = (
   weChatPayOptions
 ) => async (options) => {
   const { url, publicAppId, privateKey } = weChatPayOptions

@@ -1,7 +1,7 @@
-import { InitHtml5Pay } from 'src/interface/html5Pay.interface'
+import { InitGetHtml5Pay } from '../src/interface/html5Pay.interface'
 import { initRequest } from './request'
 
-export const initHtml5Pay: InitHtml5Pay = (weChatPayOptions) => async (
+export const initGetHtml5Pay: InitGetHtml5Pay = (weChatPayOptions) => async (
   options
 ) => {
   const { url } = weChatPayOptions

@@ -15,7 +15,7 @@ describe('test/showPay.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const transactionResult = await pay.showPay({
       transactionId: '4200000803202101145259110305'

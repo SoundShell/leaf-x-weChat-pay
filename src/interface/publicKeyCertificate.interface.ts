@@ -77,14 +77,19 @@ export interface GetPublicKeyCertificateResult {
 }
 
 /**
- * Initialize public key certificate.
+ * Initialize the acquisition of the public key certificate.
+ *
+ * @param options InitPublicKeyCertificate
+ * @return GetPublicKeyCertificate
  */
-export interface InitPublicKeyCertificate {
+export interface InitGetPublicKeyCertificate {
   (options: WeChatPayOptions): GetPublicKeyCertificate
 }
 
 /**
- * Get public key certificate.
+ * Get the public key certificate.
+ *
+ * @return Promise<GetPublicKeyCertificateResult[]>
  */
 export interface GetPublicKeyCertificate {
   (): Promise<GetPublicKeyCertificateResult[]>

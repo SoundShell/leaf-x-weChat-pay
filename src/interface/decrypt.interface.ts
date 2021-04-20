@@ -36,7 +36,10 @@ export interface DecryptOptions {
 }
 
 /**
- * Initialize decrypt.
+ * Initialize the decryption.
+ *
+ * @param options WeChatPayOptions
+ * @return Decrypt
  */
 export interface InitDecrypt {
   (options: WeChatPayOptions): Decrypt
@@ -44,6 +47,9 @@ export interface InitDecrypt {
 
 /**
  * Decrypt.
+ *
+ * @param options DecryptOptions
+ * @return string | Record<string, unknown>
  */
 export interface Decrypt {
   (options: DecryptOptions): string | Record<string, unknown>

@@ -33,7 +33,7 @@ export interface WeChatPayOptions {
   /**
    * Encryption algorithm mode.
    *
-   * Default WECHATPAY2-SHA256-RSA2048
+   * Default: WECHATPAY2-SHA256-RSA2048
    */
   schema?: string
 
@@ -58,60 +58,68 @@ export interface WeChatPayOptions {
   serialNo: string
 
   /**
-   * Api url address.
+   * API address.
    *
-   * Default https://api.mch.weixin.qq.com
+   * Default: https://api.mch.weixin.qq.com
    */
   url?: string
 
   /**
    * Timeout time, in milliseconds.
    *
-   * Default 3000
+   * Default: 3000
    */
   timeout?: number
 }
 
 /**
+ * WeChat payment results.
+ */
+export interface WeChatPayResult {
+  /**
+   * Get the application payment.
+   */
+  getAppPay: GetAppPay
+
+  /**
+   * Get html5 payment.
+   */
+  getHtml5Pay: GetHtml5Pay
+
+  /**
+   * Get the Javascript payment.
+   */
+  getJavascriptApiPay: GetJavascriptApiPay
+
+  /**
+   * Get the public key certificate.
+   */
+  getPublicKeyCertificate: GetPublicKeyCertificate
+
+  /**
+   * Show payment.
+   */
+  showPay: ShowPay
+
+  /**
+   * Validate the response signature.
+   */
+  validateResponseSign: ValidateResponseSign
+
+  /**
+   * Decrypt.
+   */
+  decrypt: Decrypt
+}
+
+/**
  * WeChat payment.
+ *
+ * @return WeChatPayOptions
+ * @return WeChatPayResult
  */
 export interface WeChatPay {
-  (options: WeChatPayOptions): () => {
-    /**
-     * Get the application payment.
-     */
-    getAppPay: GetAppPay
-
-    /**
-     * Get html5 payment.
-     */
-    getHtml5Pay: GetHtml5Pay
-
-    /**
-     * Get the Javascript payment.
-     */
-    getJavascriptApiPay: GetJavascriptApiPay
-
-    /**
-     * Get public key certificate.
-     */
-    getPublicKeyCertificate: GetPublicKeyCertificate
-
-    /**
-     * Show payment.
-     */
-    showPay: ShowPay
-
-    /**
-     * Validate the signature.
-     */
-    validateResponseSign: ValidateResponseSign
-
-    /**
-     * Decrypt.
-     */
-    decrypt: Decrypt
-  }
+  (options: WeChatPayOptions): WeChatPayResult
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "@leaf-x/we-chat-pay",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./dist/index.js",
   "author": "sound shell <sound_shell@outlook.com>",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@fidm/x509": "^1.2.1",
-    "@leaf-x/fetch": "^0.3.4",
+    "@leaf-x/fetch": "^0.4.3",
     "camelcase-keys": "^6.2.2",
     "snakecase-keys": "^3.2.1"
   },

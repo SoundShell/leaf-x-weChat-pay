@@ -16,7 +16,7 @@ describe('test/javascriptApiPay.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = await pay.getJavascriptApiPay({
       description: '测试',

@@ -15,7 +15,7 @@ describe('test/decrypt.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = pay.decrypt({
       originalType: 'transaction',
@@ -41,7 +41,7 @@ describe('test/decrypt.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = pay.decrypt({
       originalType: 'transaction',
@@ -66,7 +66,7 @@ describe('test/decrypt.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     try {
       pay.decrypt({
@@ -92,7 +92,7 @@ describe('test/decrypt.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     try {
       pay.decrypt({

@@ -16,7 +16,7 @@ describe('test/html5Pay.test.ts', () => {
         'ascii'
       ),
       publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })()
+    })
 
     const result = await pay.getHtml5Pay({
       description: '测试',

@@ -1,8 +1,10 @@
-import { InitAppPay } from 'src/interface/appPay.interface'
+import { InitGetAppPay } from '../src/interface/appPay.interface'
 import { initRequest } from './request'
 import { getAppToken } from './token'
 
-export const initAppPay: InitAppPay = (weChatPayOptions) => async (options) => {
+export const initGetAppPay: InitGetAppPay = (weChatPayOptions) => async (
+  options
+) => {
   const { url, appId, privateKey, merchantId } = weChatPayOptions
 
   if (!appId) {

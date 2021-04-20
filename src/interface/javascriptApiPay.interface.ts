@@ -6,6 +6,8 @@ import {
 
 /**
  * Get Javascript payment options.
+ *
+ * @extends OrderOptions
  */
 export interface GetJavascriptApiPayOptions extends OrderOptions {
   /**
@@ -65,14 +67,20 @@ export interface GetJavascriptApiPayResult {
 }
 
 /**
- * Initialize Javascript payment.
+ * Initialize to get Javascript payment.
+ *
+ * @param options WeChatPayOptions
+ * @return GetJavascriptApiPay
  */
-export interface InitJavascriptApiPay {
+export interface InitGetJavascriptApiPay {
   (options: WeChatPayOptions): GetJavascriptApiPay
 }
 
 /**
  * Get the Javascript payment.
+ *
+ * @param options GetJavascriptApiPayOptions
+ * @return Promise<GetJavascriptApiPayResult>
  */
 export interface GetJavascriptApiPay {
   (options: GetJavascriptApiPayOptions): Promise<GetJavascriptApiPayResult>

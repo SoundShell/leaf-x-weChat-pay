@@ -1,4 +1,4 @@
-import { InitShowPay, ShowPayResult } from 'src/interface/showPay.interface'
+import { InitShowPay, ShowPayResult } from '../src/interface/showPay.interface'
 import { initRequest } from './request'
 
 export const initShowPay: InitShowPay = (options) => ({

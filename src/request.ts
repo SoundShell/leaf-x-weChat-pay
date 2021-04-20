@@ -1,10 +1,16 @@
-import fetch from '@leaf-x/fetch'
+import { fetch } from '@leaf-x/fetch'
 import * as camelcaseKeys from 'camelcase-keys'
 import * as snakeCaseKeys from 'snakecase-keys'
-import { InitRequest, ValidateResponse } from 'src/interface/request.interface'
+import {
+  InitRequest,
+  InitValidateResponse
+} from '../src/interface/request.interface'
 import { getRequestToken, initValidateResponseSign } from './token'
 
-const validateResponse: ValidateResponse = (options) => ({ data, headers }) => {
+const initValidateResponse: InitValidateResponse = (options) => ({
+  data,
+  headers
+}) => {
   const result = initValidateResponseSign(options)({
     nonceString: headers['wechatpay-nonce'] as string,
     timestamp: headers['wechatpay-timestamp'] as string,
@@ -72,5 +78,5 @@ export const initRequest: InitRequest = (options) => async ({
     body: data,
     headers,
     timeout
-  }).then(validateResponse(options))
+  }).then(initValidateResponse(options))
 }

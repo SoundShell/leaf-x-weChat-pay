@@ -26,7 +26,7 @@ export interface ExecRequestOptions {
   headers?: Record<string, string>
 
   /**
-   * Api url address.
+   * API address.
    */
   url: string
 
@@ -43,6 +43,9 @@ export interface ExecRequestOptions {
 
 /**
  * Initialize the request.
+ *
+ * @param options WeChatPayOptions
+ * @return Request
  */
 export interface InitRequest {
   (options: WeChatPayOptions): Request
@@ -50,16 +53,30 @@ export interface InitRequest {
 
 /**
  * Request.
+ *
+ * @param options ExecRequestOptions
+ * @return Promise<unknown>
  */
 export interface Request {
   (options: ExecRequestOptions): Promise<unknown>
 }
 
 /**
- * Validate the response.
+ * Initialize the validation response.
+ *
+ * @param options WeChatPayOptions
+ * @return ValidateResponse
+ */
+export interface InitValidateResponse {
+  (options: WeChatPayOptions): ValidateResponse
+}
+
+/**
+ * Validation response.
+ *
+ * @param options HandleResponseResult
+ * @return Record<string, unknown>
  */
 export interface ValidateResponse {
-  (options: WeChatPayOptions): (
-    options: HandleResponseResult
-  ) => Record<string, unknown>
+  (options: HandleResponseResult): Record<string, unknown>
 }

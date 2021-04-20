@@ -5,6 +5,7 @@ import { WeChatPayOptions } from './weChatPay.interface'
  * Generate random string function.
  *
  * @param length Specify the length of the generated random string.
+ * @return string
  */
 export interface GenerateNonceString {
   (length: number): string
@@ -27,6 +28,9 @@ export interface FormatSecretKeyOptions {
 
 /**
  * Formatting key.
+ *
+ * @param options FormatSecretKeyOptions
+ * @return string
  */
 export interface FormatSecretKey {
   (options: FormatSecretKeyOptions): string
@@ -49,6 +53,9 @@ export interface GenerateSignOptions {
 
 /**
  * Sign.
+ *
+ * @param options GenerateSignOptions
+ * @return string
  */
 export interface Sign {
   (options: GenerateSignOptions): string
@@ -96,13 +103,16 @@ export interface GetRequestTokenOptions {
 
 /**
  * Get request token.
+ *
+ * @param options GetRequestTokenOptions
+ * @return string
  */
 export interface GetRequestToken {
   (options: GetRequestTokenOptions): string
 }
 
 /**
- * Get javascript api token options.
+ * Get the Javascript API token options.
  */
 export interface GetJavascriptApiTokenOptions {
   /**
@@ -127,7 +137,7 @@ export interface GetJavascriptApiTokenOptions {
 }
 
 /**
- * Get token result.
+ * Get the token result.
  */
 export interface GetTokenResult {
   /**
@@ -147,14 +157,17 @@ export interface GetTokenResult {
 }
 
 /**
- * Get javascript api token.
+ * Get the Javascript API token.
+ *
+ * @param options GetJavascriptApiTokenOptions
+ * @return GetTokenResult
  */
 export interface GetJavascriptApiToken {
   (options: GetJavascriptApiTokenOptions): GetTokenResult
 }
 
 /**
- * Get the application token.
+ * Get the application token options.
  */
 export interface GetAppTokenOptions {
   /**
@@ -180,6 +193,9 @@ export interface GetAppTokenOptions {
 
 /**
  * Get the application.
+ *
+ * @param options GetAppTokenOptions
+ * @return GetTokenResult
  */
 export interface GetAppToken {
   (options: GetAppTokenOptions): GetTokenResult
@@ -207,6 +223,9 @@ export interface ValidateSignOptions {
 
 /**
  * Validate the signature.
+ *
+ * @param options ValidateSignOptions
+ * @return boolean
  */
 export interface ValidateSign {
   (options: ValidateSignOptions): boolean
@@ -215,7 +234,7 @@ export interface ValidateSign {
 /**
  * Validate the response signature options.
  */
-export interface ValidateSignResponseOptions {
+export interface ValidateResponseSignOptions {
   /**
    * Random string.
    */
@@ -243,15 +262,21 @@ export interface ValidateSignResponseOptions {
 }
 
 /**
- * Initialization response validate the signature.
+ * Initialize the verification response signature.
+ *
+ * @param options WeChatPayOptions
+ * @param ValidateResponseSign
  */
 export interface InitValidateResponseSign {
   (options: WeChatPayOptions): ValidateResponseSign
 }
 
 /**
- * Validate the signature.
+ * Validate the response signature.
+ *
+ * @param options ValidateResponseSignOptions
+ * @return boolean
  */
 export interface ValidateResponseSign {
-  (options: ValidateSignResponseOptions): boolean
+  (options: ValidateResponseSignOptions): boolean
 }
