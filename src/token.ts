@@ -11,7 +11,7 @@ import {
   InitValidateResponseSign,
   Sign,
   ValidateSign
-} from 'src/interface/token.interface'
+} from '../src/interface/token.interface'
 
 const generateNonceString: GenerateNonceString = (length: number) => {
   return Array(length)

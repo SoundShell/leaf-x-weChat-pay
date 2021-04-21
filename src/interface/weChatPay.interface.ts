@@ -147,7 +147,7 @@ export interface OrderOptions {
   attach?: string
 
   /**
-   * Notification url address.
+   * Notification URL address.
    */
   notifyUrl: string
 
