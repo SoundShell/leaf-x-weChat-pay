@@ -71,7 +71,7 @@ describe('test/token.test.ts', () => {
 
     const result = pay.validateResponseSign({
       serialNo: '75ccb679260e5ee60febbf314237c746dc85798a'.toUpperCase(),
-      nonceString: 'mq4yHA14CcQ45OhUf0xhO3dd8qsVc6FQ',
+      nonceStr: 'mq4yHA14CcQ45OhUf0xhO3dd8qsVc6FQ',
       timestamp: '1610615188',
       body: {
         id: 'b107bbad-8d05-5c20-8c6a-ccef467722a0',

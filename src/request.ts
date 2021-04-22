@@ -12,7 +12,7 @@ const initValidateResponse: InitValidateResponse = (options) => ({
   headers
 }) => {
   const result = initValidateResponseSign(options)({
-    nonceString: headers['wechatpay-nonce'] as string,
+    nonceStr: headers['wechatpay-nonce'] as string,
     timestamp: headers['wechatpay-timestamp'] as string,
     sign: headers['wechatpay-signature'] as string,
     serialNo: headers['wechatpay-serial'] as string,

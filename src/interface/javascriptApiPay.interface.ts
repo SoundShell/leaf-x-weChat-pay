@@ -53,7 +53,7 @@ export interface GetJavascriptApiPayResult {
   /**
    * Random string.
    */
-  nonceString: string
+  nonceStr: string
 
   /**
    * Timestamp.

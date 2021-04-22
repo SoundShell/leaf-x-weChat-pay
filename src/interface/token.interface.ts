@@ -143,7 +143,7 @@ export interface GetTokenResult {
   /**
    * Random string.
    */
-  nonceString: string
+  nonceStr: string
 
   /**
    * Timestamp.
@@ -238,7 +238,7 @@ export interface ValidateResponseSignOptions {
   /**
    * Random string.
    */
-  nonceString: string
+  nonceStr: string
 
   /**
    * Timestamp.

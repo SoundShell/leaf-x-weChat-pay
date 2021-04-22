@@ -76,13 +76,15 @@ export const getRequestToken: GetRequestToken = ({
     '\n'
   )}\n`
 
-  const token = Object.freeze({
-    mchid: merchantId,
-    nonce_str: nonceString,
-    timestamp,
-    serial_no: serialNo,
-    signature: sign({ signString, privateKey })
-  })
+  const token = Object.freeze(
+    snakeCaseKeys({
+      mchid: merchantId,
+      nonceStr: nonceString,
+      timestamp,
+      serialNo: serialNo,
+      signature: sign({ signString, privateKey })
+    })
+  )
 
   return Object.keys(token)
     .map((key) => `${key}="${token[key as keyof typeof token]}"`)
@@ -100,7 +102,11 @@ export const getJavascriptApiToken: GetJavascriptApiToken = ({
     '\n'
   )}\n`
 
-  return { nonceString, timestamp, sign: sign({ signString, privateKey }) }
+  return {
+    nonceStr: nonceString,
+    timestamp,
+    sign: sign({ signString, privateKey })
+  }
 }
 
 export const getAppToken: GetAppToken = ({
@@ -112,24 +118,28 @@ export const getAppToken: GetAppToken = ({
   const nonceString = generateNonceString(17)
   const signString = `${[appId, timestamp, nonceString, prepayId].join('\n')}\n`
 
-  return { nonceString, timestamp, sign: sign({ signString, privateKey }) }
+  return {
+    nonceStr: nonceString,
+    timestamp,
+    sign: sign({ signString, privateKey })
+  }
 }
 
 export const initValidateResponseSign: InitValidateResponseSign = ({
   publicCertificateDir
-}) => ({ nonceString, timestamp, body, sign, serialNo }) => {
+}) => ({ nonceStr, timestamp, body, sign, serialNo }) => {
   if (!publicCertificateDir) {
     throw new Error('Missing public key certificate directory.')
   }
 
-  const signString = `${timestamp}\n${nonceString}\n${JSON.stringify(
+  const signString = `${timestamp}\n${nonceStr}\n${JSON.stringify(
     snakeCaseKeys(body, { deep: true })
   )}\n`
   const certificateNames = fs.readdirSync(publicCertificateDir)
 
   let certificate!: string
 
-  certificateNames.forEach((certificateName) => {
+  for (const certificateName of certificateNames) {
     const path = `${publicCertificateDir}/${certificateName}`
     const item = Certificate.fromPEM(fs.readFileSync(path))
 
@@ -142,7 +152,7 @@ export const initValidateResponseSign: InitValidateResponseSign = ({
     if (unlink) {
       fs.unlinkSync(path)
     }
-  })
+  }
 
   if (!certificate) {
     throw new Error('No valid certificate found.')
