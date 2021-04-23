@@ -85,6 +85,31 @@ export interface ShowPayResult {
      */
     openid: string
   }
+
+  /**
+   * Amount.
+   */
+  amount: {
+    /**
+     * Total amount
+     */
+    total: number
+
+    /**
+     * Currency type.
+     */
+    currency: string
+
+    /**
+     * User payment amount.
+     */
+    payerTotal: number
+
+    /**
+     * User payment currency.
+     */
+    payerCurrency: string
+  }
 }
 
 /**
