@@ -132,9 +132,12 @@ export const initValidateResponseSign: InitValidateResponseSign = ({
     throw new Error('Missing public key certificate directory.')
   }
 
-  const signString = `${timestamp}\n${nonceStr}\n${JSON.stringify(
-    snakeCaseKeys(body, { deep: true })
-  )}\n`
+  const signString = `${[
+    timestamp,
+    nonceStr,
+    JSON.stringify(snakeCaseKeys(body, { deep: true }))
+  ].join('\n')}\n`
+
   const certificateNames = fs.readdirSync(publicCertificateDir)
 
   let certificate!: string

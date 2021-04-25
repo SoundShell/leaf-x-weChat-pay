@@ -1,6 +1,6 @@
 {
   "name": "@leaf-x/we-chat-pay",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "./dist/index.js",
   "author": "sound shell <sound_shell@outlook.com>",
   "license": "MIT",
