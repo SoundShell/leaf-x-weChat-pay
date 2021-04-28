@@ -1,3 +1,4 @@
+import { GetTokenResult } from './token.interface'
 import {
   AmountOptions,
   OrderOptions,
@@ -28,8 +29,10 @@ export interface GetJavascriptApiPayOptions extends OrderOptions {
 
 /**
  * Get Javascript payment results.
+ *
+ * @extends GetTokenResult
  */
-export interface GetJavascriptApiPayResult {
+export interface GetJavascriptApiPayResult extends GetTokenResult {
   /**
    * Application id.
    */
@@ -49,21 +52,6 @@ export interface GetJavascriptApiPayResult {
      */
     prepayId: string
   }
-
-  /**
-   * Random string.
-   */
-  nonceStr: string
-
-  /**
-   * Timestamp.
-   */
-  timestamp: string
-
-  /**
-   * Signature.
-   */
-  sign: string
 }
 
 /**
