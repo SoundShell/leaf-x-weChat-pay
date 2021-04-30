@@ -76,39 +76,12 @@ export interface WeChatPayOptions {
  * WeChat payment results.
  */
 export interface WeChatPayResult {
-  /**
-   * Get application payment.
-   */
   getAppPay: GetAppPay
-
-  /**
-   * Get HTML5 payment.
-   */
   getHtml5Pay: GetHtml5Pay
-
-  /**
-   * Get JavaScript API payments.
-   */
   getJavascriptApiPay: GetJavascriptApiPay
-
-  /**
-   * Get public key certificates.
-   */
   getPublicKeyCertificate: GetPublicKeyCertificate
-
-  /**
-   * Show payment.
-   */
   showPay: ShowPay
-
-  /**
-   * Validate the response signature.
-   */
   validateResponseSign: ValidateResponseSign
-
-  /**
-   * Decrypt.
-   */
   decrypt: Decrypt
 }
 

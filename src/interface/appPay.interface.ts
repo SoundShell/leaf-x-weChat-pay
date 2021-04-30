@@ -12,14 +12,7 @@ import {
  * @extends OrderOptions
  */
 export interface GetAppPayOptions extends OrderOptions {
-  /**
-   * Amount.
-   */
   amount: AmountOptions
-
-  /**
-   * Payment scene information.
-   */
   sceneInfo: SceneInfoOptions
 }
 

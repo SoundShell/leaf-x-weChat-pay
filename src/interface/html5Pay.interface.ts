@@ -28,14 +28,7 @@ export interface Html5SceneInfoOptions extends SceneInfoOptions {
  * @extends OrderOptions
  */
 export interface Html5PayOptions extends OrderOptions {
-  /**
-   * Payment amount.
-   */
   amount: AmountOptions
-
-  /**
-   * HTML5 pays the scene information.
-   */
   sceneInfo: Html5SceneInfoOptions
 }
 

@@ -11,9 +11,6 @@ import {
  * @extends OrderOptions
  */
 export interface GetJavascriptApiPayOptions extends OrderOptions {
-  /**
-   * Payment amount.
-   */
   amount: AmountOptions
 
   /**
