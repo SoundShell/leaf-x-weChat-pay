@@ -6,56 +6,56 @@ import {
 } from './weChatPay.interface'
 
 /**
- * Get Javascript payment options.
+ * Get the JavaScript API payment options.
  *
  * @extends OrderOptions
  */
 export interface GetJavascriptApiPayOptions extends OrderOptions {
   /**
-   * Amount.
+   * Payment amount.
    */
   amount: AmountOptions
 
   /**
-   * Payer information.
+   * WeChat public user information.
    */
   payer: {
     /**
-     * User labeling.
+     * WeChat public user ID.
      */
     openid: string
   }
 }
 
 /**
- * Get Javascript payment results.
+ * Get the results of the JavaScript API payment.
  *
  * @extends GetTokenResult
  */
 export interface GetJavascriptApiPayResult extends GetTokenResult {
   /**
-   * Application id.
+   * Application ID.
    */
   appId: string
 
   /**
-   * Signature type .
+   * Signature type.
    */
   signType: string
 
   /**
-   * Order details extension string.
+   * Pay details.
    */
   package: {
     /**
-     * Prepayment id
+     * Pre-payment ID.
      */
     prepayId: string
   }
 }
 
 /**
- * Initialize to get Javascript payment.
+ * Initialization get JavaScript API payment.
  *
  * @param options WeChatPayOptions
  * @return GetJavascriptApiPay
@@ -65,7 +65,7 @@ export interface InitGetJavascriptApiPay {
 }
 
 /**
- * Get the Javascript payment.
+ * Get JavaScript API payments.
  *
  * @param options GetJavascriptApiPayOptions
  * @return Promise<GetJavascriptApiPayResult>

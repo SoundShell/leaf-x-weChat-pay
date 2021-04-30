@@ -2,7 +2,7 @@ import { ExecRequestOptions } from './request.interface'
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- * Generate random string function.
+ * Generate a random string.
  *
  * @param length Specify the length of the generated random string.
  * @return string
@@ -37,7 +37,7 @@ export interface FormatSecretKey {
 }
 
 /**
- * Generate signature options.
+ * Generate a signature options.
  */
 export interface GenerateSignOptions {
   /**
@@ -52,7 +52,7 @@ export interface GenerateSignOptions {
 }
 
 /**
- * Sign.
+ * Signature.
  *
  * @param options GenerateSignOptions
  * @return string
@@ -62,11 +62,11 @@ export interface Sign {
 }
 
 /**
- * Get request token option.
+ * Get the request token options.
  */
 export interface GetRequestTokenOptions {
   /**
-   * Http request method.
+   * HTTP request method.
    */
   method: ExecRequestOptions['method']
 
@@ -86,12 +86,12 @@ export interface GetRequestTokenOptions {
   privateKey: string
 
   /**
-   * Merchant id.
+   * Merchant ID.
    */
   merchantId: string
 
   /**
-   * Certificate number
+   * Certificate number.
    */
   serialNo: string
 
@@ -102,7 +102,7 @@ export interface GetRequestTokenOptions {
 }
 
 /**
- * Get request token.
+ * Get the request token.
  *
  * @param options GetRequestTokenOptions
  * @return string
@@ -112,11 +112,11 @@ export interface GetRequestToken {
 }
 
 /**
- * Get the Javascript API token options.
+ * Get the JavaScript API token options.
  */
 export interface GetJavascriptApiTokenOptions {
   /**
-   * Application id.
+   * Application ID.
    */
   appId: string
 
@@ -137,7 +137,7 @@ export interface GetJavascriptApiTokenOptions {
 }
 
 /**
- * Get the token result.
+ * Get the token results.
  */
 export interface GetTokenResult {
   /**
@@ -157,7 +157,7 @@ export interface GetTokenResult {
 }
 
 /**
- * Get the Javascript API token.
+ * Get JavaScript API token.
  *
  * @param options GetJavascriptApiTokenOptions
  * @return GetTokenResult
@@ -171,12 +171,12 @@ export interface GetJavascriptApiToken {
  */
 export interface GetAppTokenOptions {
   /**
-   * Application id.
+   * Application ID.
    */
   appId: string
 
   /**
-   * Prepayment id.
+   * Prepayment ID.
    */
   prepayId: string
 
@@ -192,7 +192,7 @@ export interface GetAppTokenOptions {
 }
 
 /**
- * Get the application.
+ * Get the application token.
  *
  * @param options GetAppTokenOptions
  * @return GetTokenResult
@@ -262,7 +262,7 @@ export interface ValidateResponseSignOptions {
 }
 
 /**
- * Initialize the verification response signature.
+ * Initialize the validate response signature.
  *
  * @param options WeChatPayOptions
  * @param ValidateResponseSign

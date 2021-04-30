@@ -11,17 +11,17 @@ import { ValidateResponseSign } from './token.interface'
  */
 export interface WeChatPayOptions {
   /**
-   * Application id.
+   * Application ID.
    */
   appId?: string
 
   /**
-   * Public appId.
+   * WeChat public account application ID.
    */
   publicAppId?: string
 
   /**
-   * Merchant id.
+   * Merchant ID.
    */
   merchantId: string
 
@@ -77,22 +77,22 @@ export interface WeChatPayOptions {
  */
 export interface WeChatPayResult {
   /**
-   * Get the application payment.
+   * Get application payment.
    */
   getAppPay: GetAppPay
 
   /**
-   * Get html5 payment.
+   * Get HTML5 payment.
    */
   getHtml5Pay: GetHtml5Pay
 
   /**
-   * Get the Javascript payment.
+   * Get JavaScript API payments.
    */
   getJavascriptApiPay: GetJavascriptApiPay
 
   /**
-   * Get the public key certificate.
+   * Get public key certificates.
    */
   getPublicKeyCertificate: GetPublicKeyCertificate
 
@@ -132,7 +132,7 @@ export interface OrderOptions {
   description: string
 
   /**
-   * Internal order number of the merchant system.
+   * Merchant order number.
    */
   outTradeNo: string
 

@@ -6,7 +6,7 @@ import { GetAppPayResult } from 'src/interface/appPay.interface'
 import { initRequest } from '../src/request'
 
 describe('test/request.test.ts', () => {
-  it('Should be the result of a request.', async () => {
+  it('should be the result of the normal response request', async () => {
     const request = initRequest({
       schema: 'WECHATPAY2-SHA256-RSA2048',
       appId: 'wx3fb47680dc1a2e20',
@@ -24,7 +24,7 @@ describe('test/request.test.ts', () => {
       method: 'POST',
       url: 'https://api.mch.weixin.qq.com/v3/pay/transactions/app',
       body: {
-        description: '测试',
+        description: 'test',
         outTradeNo: `${moment
           .utc()
           .subtract(50, 'year')

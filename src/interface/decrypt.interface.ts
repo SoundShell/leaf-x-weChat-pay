@@ -1,11 +1,11 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- * Decryption options.
+ * Decrypt the options.
  */
 export interface DecryptOptions {
   /**
-   * Encryption algorithm type.
+   * Encryption algorithm.
    */
   algorithm: string
 
@@ -15,7 +15,7 @@ export interface DecryptOptions {
   ciphertext: string
 
   /**
-   * Additional data.
+   * Associated data.
    */
   associatedData?: string
 
@@ -30,7 +30,7 @@ export interface DecryptOptions {
   nonce: string
 
   /**
-   * Whether to convert to JSON.
+   * Whether to transfer to JSON data.
    */
   formatJson?: boolean
 }

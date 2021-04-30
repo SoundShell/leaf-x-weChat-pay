@@ -6,17 +6,12 @@ import { WeChatPayOptions } from './weChatPay.interface'
  */
 export interface PublicKeyCertificate {
   /**
-   * Valid time.
+   * Effective time.
    */
   effectiveTime: string
 
   /**
-   * Encrypted certificates.
-   */
-  encryptCertificate: DecryptOptions
-
-  /**
-   * Expiration time.
+   * Expire time.
    */
   expireTime: string
 
@@ -28,48 +23,22 @@ export interface PublicKeyCertificate {
 
 /**
  * WeChat public key certificate.
+ *
+ * @extends PublicKeyCertificate
  */
-export interface WeChatPublicKeyCertificate {
+export interface WeChatPublicKeyCertificate extends PublicKeyCertificate {
   /**
-   * Valid time.
-   */
-  effectiveTime: string
-
-  /**
-   * Expiration time.
-   */
-  expireTime: string
-
-  /**
-   * Certificate number.
-   */
-  serialNo: string
-
-  /**
-   * Encrypted certificates.
+   * Encryption certificate.
    */
   encryptCertificate: DecryptOptions
 }
 
 /**
- * Get Public key certificate result.
+ * Get the results of the public key certificate.
+ *
+ * @extends PublicKeyCertificate
  */
-export interface GetPublicKeyCertificateResult {
-  /**
-   * Valid time.
-   */
-  effectiveTime: string
-
-  /**
-   * Expiration time.
-   */
-  expireTime: string
-
-  /**
-   * Certificate number.
-   */
-  serialNo: string
-
+export interface GetPublicKeyCertificateResult extends PublicKeyCertificate {
   /**
    * certificates.
    */
@@ -77,7 +46,7 @@ export interface GetPublicKeyCertificateResult {
 }
 
 /**
- * Initialize the acquisition of the public key certificate.
+ * Initialize get public key certificate.
  *
  * @param options InitPublicKeyCertificate
  * @return GetPublicKeyCertificate
@@ -87,7 +56,7 @@ export interface InitGetPublicKeyCertificate {
 }
 
 /**
- * Get the public key certificate.
+ * Get public key certificates.
  *
  * @return Promise<GetPublicKeyCertificateResult[]>
  */

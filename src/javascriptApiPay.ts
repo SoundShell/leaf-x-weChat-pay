@@ -8,7 +8,7 @@ export const initGetJavascriptApiPay: InitGetJavascriptApiPay = (
   const { url, publicAppId, privateKey } = weChatPayOptions
 
   if (!publicAppId) {
-    throw new Error('Missing public app id.')
+    throw new Error('Missing public app ID.')
   }
 
   const request = initRequest(weChatPayOptions)

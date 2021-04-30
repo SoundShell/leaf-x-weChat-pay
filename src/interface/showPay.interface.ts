@@ -1,11 +1,11 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- *  Show payment options.
+ *  Show the payment options.
  */
 export interface ShowPayOptions {
   /**
-   * WeChat payment order number.
+   * Transaction ID.
    */
   transactionId?: string
 
@@ -16,16 +16,16 @@ export interface ShowPayOptions {
 }
 
 /**
- * Show payment results.
+ * Show the results of the payment.
  */
 export interface ShowPayResult {
   /**
-   * Application id.
+   * Application ID.
    */
   appid: string
 
   /**
-   * Merchant id.
+   * Merchant ID.
    */
   mchid: string
 
@@ -35,7 +35,7 @@ export interface ShowPayResult {
   outTradeNo: string
 
   /**
-   * WeChat payment order number.
+   * Transaction ID.
    */
   transactionId?: string
 
@@ -77,17 +77,17 @@ export interface ShowPayResult {
   successTime?: string
 
   /**
-   * Payer information.
+   * WeChat public user information.
    */
   payer: {
     /**
-     * User identification.
+     * WeChat public user ID.
      */
     openid: string
   }
 
   /**
-   * Amount.
+   * Payment amount.
    */
   amount: {
     /**
@@ -113,7 +113,7 @@ export interface ShowPayResult {
 }
 
 /**
- * Initialize show payment.
+ * Initialization show payment.
  *
  * @param options WeChatPayOptions
  * @return ShowPay

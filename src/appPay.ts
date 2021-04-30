@@ -8,7 +8,7 @@ export const initGetAppPay: InitGetAppPay = (weChatPayOptions) => async (
   const { url, appId, privateKey, merchantId } = weChatPayOptions
 
   if (!appId) {
-    throw new Error('Missing app id.')
+    throw new Error('Missing app ID.')
   }
 
   const request = initRequest(weChatPayOptions)

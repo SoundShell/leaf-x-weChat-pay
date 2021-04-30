@@ -4,7 +4,7 @@ import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/publicKeyCertificate.test.ts', () => {
-  it('Should be the result of obtaining a public key certificate.', async () => {
+  it('should be the result of obtaining public key certificates', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',

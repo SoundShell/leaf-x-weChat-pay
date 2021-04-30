@@ -4,7 +4,7 @@ import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/showPay.test.ts', () => {
-  it('Should be the result of show payment.', async () => {
+  it('should be the result of the payment', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',

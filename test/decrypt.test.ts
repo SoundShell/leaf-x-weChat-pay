@@ -4,7 +4,7 @@ import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/decrypt.test.ts', () => {
-  it('Should be the result of decrypting out the JSON data.', async () => {
+  it('should be the result of decrypt and transfer to JSON data', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -30,7 +30,7 @@ describe('test/decrypt.test.ts', () => {
     assert(typeof result === 'object')
   })
 
-  it('Should be the result of decrypting out the string data.', async () => {
+  it('should be the result of decrypt and convert to string data', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -55,7 +55,7 @@ describe('test/decrypt.test.ts', () => {
     assert(typeof result === 'string')
   })
 
-  it('Should be the result of a decryption error.', async () => {
+  it('should be the result of decryption errors', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -81,11 +81,10 @@ describe('test/decrypt.test.ts', () => {
     }
   })
 
-  it('Should be the result of decrypting the missing merchant key.', async () => {
+  it('should be the result of decryption missing merchant Key', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
-      merchantKey: '53a8a26e2db752cf2c69304f222d26d5',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
         path.join(__dirname, '../public/certificate/privateKey.pem'),

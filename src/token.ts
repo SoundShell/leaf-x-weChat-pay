@@ -13,7 +13,7 @@ import {
   ValidateSign
 } from '../src/interface/token.interface'
 
-const generateNonceString: GenerateNonceString = (length: number) => {
+const generateNonceString: GenerateNonceString = (length) => {
   return Array(length)
     .fill('')
     .map(() => Math.random().toString(36).charAt(2))
