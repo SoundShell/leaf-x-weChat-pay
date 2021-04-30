@@ -27,9 +27,6 @@ export interface PublicKeyCertificate {
  * @extends PublicKeyCertificate
  */
 export interface WeChatPublicKeyCertificate extends PublicKeyCertificate {
-  /**
-   * Encryption certificate.
-   */
   encryptCertificate: DecryptOptions
 }
 
