@@ -1,42 +1,42 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- * Decrypt the options.
+ * Decrypt options.
  */
 export interface DecryptOptions {
   /**
-   * Encryption algorithm.
+   * Encryption algorithms.
    */
   algorithm: string
 
   /**
-   * Data ciphertext.
+   * Base64 encoded cipher text.
    */
   ciphertext: string
 
   /**
-   * Associated data.
+   * Additional data packages.
    */
   associatedData?: string
 
   /**
-   * Original type.
+   * Object type before encryption.
    */
   originalType: string
 
   /**
-   * Random string.
+   * Random string initialization vector used for encryption.
    */
   nonce: string
 
   /**
-   * Whether to transfer to JSON data.
+   * Whether to format as JSON.
    */
   formatJson?: boolean
 }
 
 /**
- * Initialize the decryption.
+ * Initialize decrypt.
  *
  * @param options WeChatPayOptions
  * @return Decrypt

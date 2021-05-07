@@ -6,11 +6,14 @@ import {
 } from './weChatPay.interface'
 
 /**
- * Get the JavaScript API payment options.
+ * Get JavaScript API payment options.
  *
  * @extends OrderOptions
  */
 export interface GetJavascriptApiPayOptions extends OrderOptions {
+  /**
+   * Payment amount options.
+   */
   amount: AmountOptions
 
   /**
@@ -25,7 +28,7 @@ export interface GetJavascriptApiPayOptions extends OrderOptions {
 }
 
 /**
- * Get the results of the JavaScript API payment.
+ * Get JavaScript API payment result.
  *
  * @extends GetTokenResult
  */
@@ -41,7 +44,7 @@ export interface GetJavascriptApiPayResult extends GetTokenResult {
   signType: string
 
   /**
-   * Pay details.
+   * Payment details extended string.
    */
   package: {
     /**
@@ -52,7 +55,7 @@ export interface GetJavascriptApiPayResult extends GetTokenResult {
 }
 
 /**
- * Initialization get JavaScript API payment.
+ * Initialize to get JavaScript API payment.
  *
  * @param options WeChatPayOptions
  * @return GetJavascriptApiPay
@@ -62,7 +65,7 @@ export interface InitGetJavascriptApiPay {
 }
 
 /**
- * Get JavaScript API payments.
+ * Get JavaScript API payment.
  *
  * @param options GetJavascriptApiPayOptions
  * @return Promise<GetJavascriptApiPayResult>

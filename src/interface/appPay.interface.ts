@@ -7,12 +7,19 @@ import {
 } from './weChatPay.interface'
 
 /**
- * Get the application payment options.
+ * Get application payment options.
  *
  * @extends OrderOptions
  */
 export interface GetAppPayOptions extends OrderOptions {
+  /**
+   * Payment amount options.
+   */
   amount: AmountOptions
+
+  /**
+   * Payment scenario information options.
+   */
   sceneInfo: SceneInfoOptions
 }
 
@@ -38,13 +45,13 @@ export interface GetAppPayResult extends GetTokenResult {
   prepayId: string
 
   /**
-   * Pay details.
+   * Payment details extended string.
    */
   package: string
 }
 
 /**
- * Initialize get application payment.
+ * Initialize to get application payment.
  *
  * @param options WeChatPayOptions
  * @return GetAppPay

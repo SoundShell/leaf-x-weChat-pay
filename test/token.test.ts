@@ -9,7 +9,7 @@ import {
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/token.test.ts', () => {
-  it('should be the result of obtaining request token', async () => {
+  it('should be the result of getting the request token', async () => {
     const timestamp = `${parseInt((Date.now() / 1000).toString())}`
     const result = getRequestToken({
       method: 'POST',
@@ -26,7 +26,7 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'string')
   })
 
-  it('should be the result of obtaining JavaScript API token', async () => {
+  it('should be the result of getting JavaScript API token', async () => {
     const timestamp = `${parseInt((Date.now() / 1000).toString())}`
     const result = getJavascriptApiToken({
       appId: 'POST',
@@ -41,7 +41,7 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'object')
   })
 
-  it('should be the result of obtaining the application token', async () => {
+  it('should be the result of getting the application token', async () => {
     const timestamp = `${parseInt((Date.now() / 1000).toString())}`
     const result = getAppToken({
       appId: 'dnZzZGZ3MTIzMjFkZmZnZw==',
@@ -56,7 +56,7 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'object')
   })
 
-  it('should be the result of the validate signature', async () => {
+  it('should be the result of validate signature', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',

@@ -5,7 +5,7 @@ import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/appPay.test.ts', () => {
-  it('should be said that the result of obtaining application payment', async () => {
+  it('should be the result of getting the application payment', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -41,7 +41,7 @@ describe('test/appPay.test.ts', () => {
     assert(result.package === 'Sign=WXPay')
   })
 
-  it('should be the result of obtaining the application payment lack of app ID', async () => {
+  it('should be the result of getting the application to pay for the missing application ID', async () => {
     const pay = weChatPay({
       merchantId: '1565407881',
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',

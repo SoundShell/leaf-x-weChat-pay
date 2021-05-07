@@ -1,7 +1,7 @@
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- *  Show the payment options.
+ * Show payment options.
  */
 export interface ShowPayOptions {
   /**
@@ -16,7 +16,7 @@ export interface ShowPayOptions {
 }
 
 /**
- * Show the results of the payment.
+ * Show payment result.
  */
 export interface ShowPayResult {
   /**
@@ -113,7 +113,7 @@ export interface ShowPayResult {
 }
 
 /**
- * Initialization show payment.
+ * Initialize show payment.
  *
  * @param options WeChatPayOptions
  * @return ShowPay

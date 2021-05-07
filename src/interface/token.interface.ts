@@ -2,7 +2,7 @@ import { ExecRequestOptions } from './request.interface'
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
- * Generate a random string.
+ * Generate random string.
  *
  * @param length Specify the length of the generated random string.
  * @return string
@@ -27,7 +27,7 @@ export interface FormatSecretKeyOptions {
 }
 
 /**
- * Formatting key.
+ * Format key.
  *
  * @param options FormatSecretKeyOptions
  * @return string
@@ -37,7 +37,7 @@ export interface FormatSecretKey {
 }
 
 /**
- * Generate a signature options.
+ * Generate signature options.
  */
 export interface GenerateSignOptions {
   /**
@@ -62,7 +62,7 @@ export interface Sign {
 }
 
 /**
- * Get the request token options.
+ * Get request token options.
  */
 export interface GetRequestTokenOptions {
   /**
@@ -71,7 +71,7 @@ export interface GetRequestTokenOptions {
   method: ExecRequestOptions['method']
 
   /**
-   * URL address.
+   * Request URL address.
    */
   url: string
 
@@ -112,7 +112,7 @@ export interface GetRequestToken {
 }
 
 /**
- * Get the JavaScript API token options.
+ * Get JavaScript API token options.
  */
 export interface GetJavascriptApiTokenOptions {
   /**
@@ -137,7 +137,7 @@ export interface GetJavascriptApiTokenOptions {
 }
 
 /**
- * Get the token results.
+ * Get token result.
  */
 export interface GetTokenResult {
   /**
@@ -202,7 +202,7 @@ export interface GetAppToken {
 }
 
 /**
- * Validate the signature options.
+ * Validate signature options.
  */
 export interface ValidateSignOptions {
   /**
@@ -222,7 +222,7 @@ export interface ValidateSignOptions {
 }
 
 /**
- * Validate the signature.
+ * Validate signature.
  *
  * @param options ValidateSignOptions
  * @return boolean
@@ -265,7 +265,7 @@ export interface ValidateResponseSignOptions {
  * Initialize the validate response signature.
  *
  * @param options WeChatPayOptions
- * @param ValidateResponseSign
+ * @return ValidateResponseSign
  */
 export interface InitValidateResponseSign {
   (options: WeChatPayOptions): ValidateResponseSign

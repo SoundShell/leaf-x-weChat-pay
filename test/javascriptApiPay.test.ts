@@ -5,7 +5,7 @@ import * as path from 'path'
 import { weChatPay } from '../src/weChatPay'
 
 describe('test/javascriptApiPay.test.ts', () => {
-  it('should be the result of obtaining the JavaScript API payment', async () => {
+  it('should be the result of getting the JavaScript API payment', async () => {
     const pay = weChatPay({
       publicAppId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -42,7 +42,7 @@ describe('test/javascriptApiPay.test.ts', () => {
     assert(typeof result.package.prepayId === 'string')
   })
 
-  it('should be the result of obtaining the lack of the public app ID of the JavaScript API.', async () => {
+  it('should be the result of getting the missing WeChat public ID paid by JavaScript API', async () => {
     const pay = weChatPay({
       merchantId: '1565407881',
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',

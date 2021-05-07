@@ -2,11 +2,11 @@ import * as assert from 'assert'
 import * as fs from 'fs'
 import * as moment from 'moment'
 import * as path from 'path'
-import { GetAppPayResult } from 'src/interface/appPay.interface'
+import { GetAppPayResult } from '../src/interface/appPay.interface'
 import { initRequest } from '../src/request'
 
 describe('test/request.test.ts', () => {
-  it('should be the result of the normal response request', async () => {
+  it('should be the result of correct response to the request', async () => {
     const request = initRequest({
       schema: 'WECHATPAY2-SHA256-RSA2048',
       appId: 'wx3fb47680dc1a2e20',

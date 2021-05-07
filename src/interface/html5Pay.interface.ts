@@ -6,13 +6,13 @@ import {
 } from './weChatPay.interface'
 
 /**
- * HTML5 pays the scene information.
+ * HTML5 payment scenario information.
  *
  * @extends SceneInfoOptions
  */
 export interface Html5SceneInfoOptions extends SceneInfoOptions {
   /**
-   * HTML5 scene.
+   * HTML5 information.
    */
   h5Info: {
     /**
@@ -28,12 +28,19 @@ export interface Html5SceneInfoOptions extends SceneInfoOptions {
  * @extends OrderOptions
  */
 export interface Html5PayOptions extends OrderOptions {
+  /**
+   * Payment amount options.
+   */
   amount: AmountOptions
+
+  /**
+   * HTML5 payment scenario information.
+   */
   sceneInfo: Html5SceneInfoOptions
 }
 
 /**
- * Initialization get HTM5 payment.
+ * Initialize to get HTML5 payment.
  *
  * @param options WeChatPayOptions
  * @return GetHtml5Pay

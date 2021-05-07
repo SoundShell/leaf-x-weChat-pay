@@ -1,4 +1,4 @@
-import { ProcessResponseResult } from '@leaf-x/fetch'
+import { HandleResponseResult } from '@leaf-x/fetch'
 import { WeChatPayOptions } from './weChatPay.interface'
 
 /**
@@ -26,7 +26,7 @@ export interface ExecRequestOptions {
   headers?: Record<string, string>
 
   /**
-   * API URL address.
+   * Request URL address.
    */
   url: string
 
@@ -36,13 +36,13 @@ export interface ExecRequestOptions {
   body?: unknown
 
   /**
-   * Whether WeChat public account.
+   * Whether the WeChat public request.
    */
   publicApp?: boolean
 }
 
 /**
- * Initialization request.
+ * Initialize request.
  *
  * @param options WeChatPayOptions
  * @return Request
@@ -74,9 +74,9 @@ export interface InitValidateResponse {
 /**
  * Validate response.
  *
- * @param options ProcessResponseResult
+ * @param options HandleResponseResult
  * @return Record<string, unknown>
  */
 export interface ValidateResponse {
-  (options: ProcessResponseResult): Record<string, unknown>
+  (options: HandleResponseResult): Record<string, unknown>
 }

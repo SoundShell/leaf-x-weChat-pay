@@ -58,37 +58,64 @@ export interface WeChatPayOptions {
   serialNo: string
 
   /**
-   * API address.
+   * Request URL address.
    *
-   * Default: https://api.mch.weixin.qq.com
+   * Default https://api.mch.weixin.qq.com
    */
   url?: string
 
   /**
-   * Timeout time, in milliseconds.
+   * The request timeout time in milliseconds.
    *
-   * Default: 3000
+   * Default 3000ms
    */
   timeout?: number
 }
 
 /**
- * WeChat payment results.
+ * WeChat payment result.
  */
 export interface WeChatPayResult {
+  /**
+   * Get application payment.
+   */
   getAppPay: GetAppPay
+
+  /**
+   * Get HTML5 payment.
+   */
   getHtml5Pay: GetHtml5Pay
+
+  /**
+   * Get JavaScript API payment.
+   */
   getJavascriptApiPay: GetJavascriptApiPay
+
+  /**
+   * Get public key certificate.
+   */
   getPublicKeyCertificate: GetPublicKeyCertificate
+
+  /**
+   * Show payment.
+   */
   showPay: ShowPay
+
+  /**
+   * Validate the response signature.
+   */
   validateResponseSign: ValidateResponseSign
+
+  /**
+   * Decrypt.
+   */
   decrypt: Decrypt
 }
 
 /**
  * WeChat payment.
  *
- * @return WeChatPayOptions
+ * @param WeChatPayOptions
  * @return WeChatPayResult
  */
 export interface WeChatPay {
@@ -150,12 +177,12 @@ export interface AmountOptions {
  */
 export interface SceneInfoOptions {
   /**
-   * Client ip.
+   * Client IP.
    */
   payerClientIp: string
 
   /**
-   * Merchant device number.
+   * Merchant device ID.
    */
   deviceId?: string
 }
