@@ -1,10 +1,10 @@
-import { GetAppPay } from './appPay.interface'
-import { Decrypt } from './decrypt.interface'
-import { GetHtml5Pay } from './html5Pay.interface'
-import { GetJavascriptApiPay } from './javascriptApiPay.interface'
-import { GetPublicKeyCertificate } from './publicKeyCertificate.interface'
-import { ShowPay } from './showPay.interface'
-import { ValidateResponseSign } from './token.interface'
+import {GetAppPay} from './app_pay.interface';
+import {Decrypt} from './decrypt.interface';
+import {GetHtml5Pay} from './html5_pay.interface';
+import {GetJavascriptApiPay} from './javascript_api_pay.interface';
+import {GetPublicKeyCertificate} from './public_key_certificate.interface';
+import {ShowPay} from './show_pay.interface';
+import {ValidateResponseSign} from './token.interface';
 
 /**
  * WeChat payment options.
@@ -13,63 +13,63 @@ export interface WeChatPayOptions {
   /**
    * Application ID.
    */
-  appId?: string
+  appId?: string;
 
   /**
    * WeChat public account application ID.
    */
-  publicAppId?: string
+  publicAppId?: string;
 
   /**
    * Merchant ID.
    */
-  merchantId: string
+  merchantId: string;
 
   /**
    * Merchant key.
    */
-  merchantKey?: string
+  merchantKey?: string;
 
   /**
    * Encryption algorithm mode.
    *
    * Default: WECHATPAY2-SHA256-RSA2048
    */
-  schema?: string
+  schema?: string;
 
   /**
    * Private key.
    */
-  privateKey: string
+  privateKey: string;
 
   /**
    * Public key certificate path.
    */
-  publicCertificatePath?: string
+  publicCertificatePath?: string;
 
   /**
    * Public key certificate directory.
    */
-  publicCertificateDir?: string
+  publicCertificateDir?: string;
 
   /**
    * Certificate number.
    */
-  serialNo: string
+  serialNo: string;
 
   /**
    * Request URL address.
    *
    * Default https://api.mch.weixin.qq.com
    */
-  url?: string
+  url?: string;
 
   /**
    * The request timeout time in milliseconds.
    *
    * Default 3000ms
    */
-  timeout?: number
+  timeout?: number;
 }
 
 /**
@@ -79,37 +79,37 @@ export interface WeChatPayResult {
   /**
    * Get application payment.
    */
-  getAppPay: GetAppPay
+  getAppPay: GetAppPay;
 
   /**
    * Get HTML5 payment.
    */
-  getHtml5Pay: GetHtml5Pay
+  getHtml5Pay: GetHtml5Pay;
 
   /**
    * Get JavaScript API payment.
    */
-  getJavascriptApiPay: GetJavascriptApiPay
+  getJavascriptApiPay: GetJavascriptApiPay;
 
   /**
    * Get public key certificate.
    */
-  getPublicKeyCertificate: GetPublicKeyCertificate
+  getPublicKeyCertificate: GetPublicKeyCertificate;
 
   /**
    * Show payment.
    */
-  showPay: ShowPay
+  showPay: ShowPay;
 
   /**
    * Validate the response signature.
    */
-  validateResponseSign: ValidateResponseSign
+  validateResponseSign: ValidateResponseSign;
 
   /**
    * Decrypt.
    */
-  decrypt: Decrypt
+  decrypt: Decrypt;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface WeChatPayResult {
  * @return WeChatPayResult
  */
 export interface WeChatPay {
-  (options: WeChatPayOptions): WeChatPayResult
+  (options: WeChatPayOptions): WeChatPayResult;
 }
 
 /**
@@ -129,32 +129,32 @@ export interface OrderOptions {
   /**
    * Product description.
    */
-  description: string
+  description: string;
 
   /**
    * Merchant order number.
    */
-  outTradeNo: string
+  outTradeNo: string;
 
   /**
    * Order expiration time.
    */
-  timeExpire?: string
+  timeExpire?: string;
 
   /**
    * Additional data.
    */
-  attach?: string
+  attach?: string;
 
   /**
    * Notification URL address.
    */
-  notifyUrl: string
+  notifyUrl: string;
 
   /**
    * Order discount marker.
    */
-  goodsTag?: string
+  goodsTag?: string;
 }
 
 /**
@@ -164,12 +164,12 @@ export interface AmountOptions {
   /**
    * Amount.
    */
-  total: number
+  total: number;
 
   /**
    * Currency.
    */
-  currency?: string
+  currency?: string;
 }
 
 /**
@@ -179,10 +179,10 @@ export interface SceneInfoOptions {
   /**
    * Client IP.
    */
-  payerClientIp: string
+  payerClientIp: string;
 
   /**
    * Merchant device ID.
    */
-  deviceId?: string
+  deviceId?: string;
 }

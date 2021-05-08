@@ -1,5 +1,5 @@
-import { ExecRequestOptions } from './request.interface'
-import { WeChatPayOptions } from './weChatPay.interface'
+import {ExecRequestOptions} from './request.interface';
+import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
  * Generate random string.
@@ -8,7 +8,7 @@ import { WeChatPayOptions } from './weChatPay.interface'
  * @return string
  */
 export interface GenerateNonceString {
-  (length: number): string
+  (length: number): string;
 }
 
 /**
@@ -18,12 +18,12 @@ export interface FormatSecretKeyOptions {
   /**
    * Key.
    */
-  secretKey: string
+  secretKey: string;
 
   /**
    * Key type.
    */
-  type: string
+  type: string;
 }
 
 /**
@@ -33,7 +33,7 @@ export interface FormatSecretKeyOptions {
  * @return string
  */
 export interface FormatSecretKey {
-  (options: FormatSecretKeyOptions): string
+  (options: FormatSecretKeyOptions): string;
 }
 
 /**
@@ -43,12 +43,12 @@ export interface GenerateSignOptions {
   /**
    * Signature string.
    */
-  signString: string
+  signString: string;
 
   /**
    * Private key.
    */
-  privateKey: string
+  privateKey: string;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface GenerateSignOptions {
  * @return string
  */
 export interface Sign {
-  (options: GenerateSignOptions): string
+  (options: GenerateSignOptions): string;
 }
 
 /**
@@ -68,37 +68,37 @@ export interface GetRequestTokenOptions {
   /**
    * HTTP request method.
    */
-  method: ExecRequestOptions['method']
+  method: ExecRequestOptions['method'];
 
   /**
    * Request URL address.
    */
-  url: string
+  url: string;
 
   /**
    * Request body.
    */
-  body?: unknown
+  body?: unknown;
 
   /**
    * Private key.
    */
-  privateKey: string
+  privateKey: string;
 
   /**
    * Merchant ID.
    */
-  merchantId: string
+  merchantId: string;
 
   /**
    * Certificate number.
    */
-  serialNo: string
+  serialNo: string;
 
   /**
    * Timestamp.
    */
-  timestamp: string
+  timestamp: string;
 }
 
 /**
@@ -108,7 +108,7 @@ export interface GetRequestTokenOptions {
  * @return string
  */
 export interface GetRequestToken {
-  (options: GetRequestTokenOptions): string
+  (options: GetRequestTokenOptions): string;
 }
 
 /**
@@ -118,22 +118,22 @@ export interface GetJavascriptApiTokenOptions {
   /**
    * Application ID.
    */
-  appId: string
+  appId: string;
 
   /**
    * Prepayment information string.
    */
-  prepayString: string
+  prepayString: string;
 
   /**
    * Private key.
    */
-  privateKey: string
+  privateKey: string;
 
   /**
    * Timestamp.
    */
-  timestamp: string
+  timestamp: string;
 }
 
 /**
@@ -143,17 +143,17 @@ export interface GetTokenResult {
   /**
    * Random string.
    */
-  nonceStr: string
+  nonceStr: string;
 
   /**
    * Timestamp.
    */
-  timestamp: string
+  timestamp: string;
 
   /**
    * Signature.
    */
-  sign: string
+  sign: string;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface GetTokenResult {
  * @return GetTokenResult
  */
 export interface GetJavascriptApiToken {
-  (options: GetJavascriptApiTokenOptions): GetTokenResult
+  (options: GetJavascriptApiTokenOptions): GetTokenResult;
 }
 
 /**
@@ -173,22 +173,22 @@ export interface GetAppTokenOptions {
   /**
    * Application ID.
    */
-  appId: string
+  appId: string;
 
   /**
    * Prepayment ID.
    */
-  prepayId: string
+  prepayId: string;
 
   /**
    * Private Key.
    */
-  privateKey: string
+  privateKey: string;
 
   /**
    * Timestamp.
    */
-  timestamp: string
+  timestamp: string;
 }
 
 /**
@@ -198,7 +198,7 @@ export interface GetAppTokenOptions {
  * @return GetTokenResult
  */
 export interface GetAppToken {
-  (options: GetAppTokenOptions): GetTokenResult
+  (options: GetAppTokenOptions): GetTokenResult;
 }
 
 /**
@@ -208,17 +208,17 @@ export interface ValidateSignOptions {
   /**
    * Public key.
    */
-  publicKey: string
+  publicKey: string;
 
   /**
    * Signature.
    */
-  sign: string
+  sign: string;
 
   /**
    * Signature string.
    */
-  signString: string
+  signString: string;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface ValidateSignOptions {
  * @return boolean
  */
 export interface ValidateSign {
-  (options: ValidateSignOptions): boolean
+  (options: ValidateSignOptions): boolean;
 }
 
 /**
@@ -238,27 +238,27 @@ export interface ValidateResponseSignOptions {
   /**
    * Random string.
    */
-  nonceStr: string
+  nonceStr: string;
 
   /**
    * Timestamp.
    */
-  timestamp: string
+  timestamp: string;
 
   /**
    * Response body.
    */
-  body: Record<string, unknown>
+  body: Record<string, unknown>;
 
   /**
    * Signature.
    */
-  sign: string
+  sign: string;
 
   /**
    * Certificate number.
    */
-  serialNo: string
+  serialNo: string;
 }
 
 /**
@@ -268,7 +268,7 @@ export interface ValidateResponseSignOptions {
  * @return ValidateResponseSign
  */
 export interface InitValidateResponseSign {
-  (options: WeChatPayOptions): ValidateResponseSign
+  (options: WeChatPayOptions): ValidateResponseSign;
 }
 
 /**
@@ -278,5 +278,5 @@ export interface InitValidateResponseSign {
  * @return boolean
  */
 export interface ValidateResponseSign {
-  (options: ValidateResponseSignOptions): boolean
+  (options: ValidateResponseSignOptions): boolean;
 }

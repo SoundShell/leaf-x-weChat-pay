@@ -1,7 +1,7 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as path from 'path'
-import { weChatPay } from '../src/weChatPay'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/showPay.test.ts', () => {
   it('should be the result of show the payment', async () => {
@@ -14,18 +14,21 @@ describe('test/showPay.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     const transactionResult = await pay.showPay({
-      transactionId: '4200000803202101145259110305'
-    })
+      transactionId: '4200000803202101145259110305',
+    });
 
     const outTradeNoResult = await pay.showPay({
-      outTradeNo: '49180619299012608'
-    })
+      outTradeNo: '49180619299012608',
+    });
 
-    assert(typeof transactionResult === 'object')
-    assert(typeof outTradeNoResult === 'object')
-  })
-})
+    assert(typeof transactionResult === 'object');
+    assert(typeof outTradeNoResult === 'object');
+  });
+});

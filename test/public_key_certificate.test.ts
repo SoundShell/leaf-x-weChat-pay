@@ -1,7 +1,7 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as path from 'path'
-import { weChatPay } from '../src/weChatPay'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/publicKeyCertificate.test.ts', () => {
   it('should be the result of obtaining public key certificate', async () => {
@@ -14,13 +14,16 @@ describe('test/publicKeyCertificate.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
-    const result = await pay.getPublicKeyCertificate()
+    const result = await pay.getPublicKeyCertificate();
 
-    assert(Array.isArray(result))
-    assert(typeof result[0] === 'object')
-    assert(typeof result[0].certificate === 'string')
-  })
-})
+    assert(Array.isArray(result));
+    assert(typeof result[0] === 'object');
+    assert(typeof result[0].certificate === 'string');
+  });
+});

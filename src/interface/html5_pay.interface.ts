@@ -2,8 +2,8 @@ import {
   AmountOptions,
   OrderOptions,
   SceneInfoOptions,
-  WeChatPayOptions
-} from './weChatPay.interface'
+  WeChatPayOptions,
+} from './we_chat_pay.interface';
 
 /**
  * HTML5 payment scenario information.
@@ -18,8 +18,8 @@ export interface Html5SceneInfoOptions extends SceneInfoOptions {
     /**
      * Scene type.
      */
-    type: 'iOS' | 'Android' | 'Wap'
-  }
+    type: 'iOS' | 'Android' | 'Wap';
+  };
 }
 
 /**
@@ -31,12 +31,12 @@ export interface Html5PayOptions extends OrderOptions {
   /**
    * Payment amount options.
    */
-  amount: AmountOptions
+  amount: AmountOptions;
 
   /**
    * HTML5 payment scenario information.
    */
-  sceneInfo: Html5SceneInfoOptions
+  sceneInfo: Html5SceneInfoOptions;
 }
 
 /**
@@ -46,7 +46,7 @@ export interface Html5PayOptions extends OrderOptions {
  * @return GetHtml5Pay
  */
 export interface InitGetHtml5Pay {
-  (options: WeChatPayOptions): GetHtml5Pay
+  (options: WeChatPayOptions): GetHtml5Pay;
 }
 
 /**
@@ -56,5 +56,5 @@ export interface InitGetHtml5Pay {
  * @return Promise<{ url: string }>
  */
 export interface GetHtml5Pay {
-  (options: Html5PayOptions): Promise<{ url: string }>
+  (options: Html5PayOptions): Promise<{url: string}>;
 }

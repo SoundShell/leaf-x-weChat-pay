@@ -1,16 +1,16 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as path from 'path'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
 import {
   getAppToken,
   getJavascriptApiToken,
-  getRequestToken
-} from '../src/token'
-import { weChatPay } from '../src/weChatPay'
+  getRequestToken,
+} from '../src/token';
+import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/token.test.ts', () => {
   it('should be the result of getting the request token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`
+    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
     const result = getRequestToken({
       method: 'POST',
       url: 'https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi',
@@ -20,14 +20,14 @@ describe('test/token.test.ts', () => {
       ),
       merchantId: 'ZmZmc2Rmcw==',
       serialNo: 'c2Rmc2FkZ2hoampoanNkYWZzZGFmYXNk',
-      timestamp
-    })
+      timestamp,
+    });
 
-    assert(typeof result === 'string')
-  })
+    assert(typeof result === 'string');
+  });
 
   it('should be the result of getting JavaScript API token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`
+    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
     const result = getJavascriptApiToken({
       appId: 'POST',
       prepayString: 'prepay_id=86739283838457',
@@ -35,14 +35,14 @@ describe('test/token.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      timestamp
-    })
+      timestamp,
+    });
 
-    assert(typeof result === 'object')
-  })
+    assert(typeof result === 'object');
+  });
 
   it('should be the result of getting the application token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`
+    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
     const result = getAppToken({
       appId: 'dnZzZGZ3MTIzMjFkZmZnZw==',
       prepayId: '556621223334',
@@ -50,11 +50,11 @@ describe('test/token.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      timestamp
-    })
+      timestamp,
+    });
 
-    assert(typeof result === 'object')
-  })
+    assert(typeof result === 'object');
+  });
 
   it('should be the result of validate signature', async () => {
     const pay = weChatPay({
@@ -66,8 +66,11 @@ describe('test/token.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     const result = pay.validateResponseSign({
       serialNo: '75ccb679260e5ee60febbf314237c746dc85798a'.toUpperCase(),
@@ -85,13 +88,13 @@ describe('test/token.test.ts', () => {
           ciphertext:
             'azuJbMWxc5IK0FgYcBolHLm3V7uxBno8knpvqHSfdTQcpZ4t4lN1I6UZTpAIhUC1hOH8QKlsKt8sjYJgVesmQHpTOUjYB0sjVmAJ/UltfSvydAFPVBzY7BLSI8bXizeh9/jMGdtZ4mBjH68JelnYk5JoKW9De2IGNLWEf6MSmOdn8QZpBOnjOMVP21qAzP6Z3CVoNOMoNPRvAJKsSsID9JxPgTqcZglWgmsrnZm2itC5bxh4uxjPJWeQogaZHFIlt61MQOLTpo7kCtfKgah0NM8sizFig9dX8j3wFJGNDavjm8NELUqiy6UO3Dtewrjd+f5SMna7m5KQVtQX8DUKNf3P/Q0pouzxJyH4uRQr9KrYgtNsaIYMd6oj3abvBQ5TCeTU5nFJMcyVgVaR5EZbU9b+A1HKc+QnpYrRAfQgpePwbyE5OmsRdLWgxIe6a8zZxZ2TpbX1ls8GKAQ022uKZanKXsL7aVPzRZ/oT1vGfEeBo2rw2OzmYNYrqFmoX7ph0VMAnjdRVtsiUA0ft8XSVlU9KNBHY1QxmisGBzhTJAXtzzhonZ80h/vn31f+VQ==',
           associatedData: 'transaction',
-          nonce: 'OvMzjQVI0urP'
-        }
+          nonce: 'OvMzjQVI0urP',
+        },
       },
       sign:
-        'tIHr+yf2DY/XB8P/93NK0OV97afvsCAEJXCUSeeDEScou1MR0P8dvtYWsc2VXg+fu2pwEZ2wy2vsDDANHyUbiO4ITUTPPIjVexUDGjIEf3/powkrPL/ZbLDFJCuGeGRYN+wxy4CG7BTDN15eNzzJI0YDWbHx43wYkNsaTqRrVDn4blgWEvwlRu7wbhWN4PzZ7AcCtBAA2S28fnoMlxZaV6hy01sxzBAWzjOTC5sSW50/i092huprvojQlXvK7RdxRo2+zKiFra9G0HPizsvbwZjfNBFyFYJvL6GVCNAqmll0LaZWu70lOwePH7geXhfbLLR2+gIWEOCBWsilwAYp4Q=='
-    })
+        'tIHr+yf2DY/XB8P/93NK0OV97afvsCAEJXCUSeeDEScou1MR0P8dvtYWsc2VXg+fu2pwEZ2wy2vsDDANHyUbiO4ITUTPPIjVexUDGjIEf3/powkrPL/ZbLDFJCuGeGRYN+wxy4CG7BTDN15eNzzJI0YDWbHx43wYkNsaTqRrVDn4blgWEvwlRu7wbhWN4PzZ7AcCtBAA2S28fnoMlxZaV6hy01sxzBAWzjOTC5sSW50/i092huprvojQlXvK7RdxRo2+zKiFra9G0HPizsvbwZjfNBFyFYJvL6GVCNAqmll0LaZWu70lOwePH7geXhfbLLR2+gIWEOCBWsilwAYp4Q==',
+    });
 
-    assert(result)
-  })
-})
+    assert(result);
+  });
+});
