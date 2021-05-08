@@ -1,8 +1,8 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as moment from 'moment'
-import * as path from 'path'
-import { weChatPay } from '../src/weChatPay'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as moment from 'moment';
+import * as path from 'path';
+import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/javascriptApiPay.test.ts', () => {
   it('should be the result of getting the JavaScript API payment', async () => {
@@ -15,8 +15,11 @@ describe('test/javascriptApiPay.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     const result = await pay.getJavascriptApiPay({
       description: 'test',
@@ -28,19 +31,19 @@ describe('test/javascriptApiPay.test.ts', () => {
       notifyUrl: 'https://dev.api.thallonet.com/v3/weChatPayNotifies',
       amount: {
         total: 1,
-        currency: 'CNY'
+        currency: 'CNY',
       },
       payer: {
-        openid: 'ojRIYxPNI8lSTa_GUR_IlA2LNQFw'
-      }
-    })
+        openid: 'ojRIYxPNI8lSTa_GUR_IlA2LNQFw',
+      },
+    });
 
-    assert(typeof result === 'object')
-    assert(result.appId === 'wx3fb47680dc1a2e20')
-    assert(result.signType === 'RSA')
-    assert(typeof result.package === 'object')
-    assert(typeof result.package.prepayId === 'string')
-  })
+    assert(typeof result === 'object');
+    assert(result.appId === 'wx3fb47680dc1a2e20');
+    assert(result.signType === 'RSA');
+    assert(typeof result.package === 'object');
+    assert(typeof result.package.prepayId === 'string');
+  });
 
   it('should be the result of getting the missing WeChat public ID paid by JavaScript API', async () => {
     const pay = weChatPay({
@@ -51,8 +54,11 @@ describe('test/javascriptApiPay.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     try {
       await pay.getJavascriptApiPay({
@@ -65,14 +71,14 @@ describe('test/javascriptApiPay.test.ts', () => {
         notifyUrl: 'https://dev.api.thallonet.com/v3/weChatPayNotifies',
         amount: {
           total: 1,
-          currency: 'CNY'
+          currency: 'CNY',
         },
         payer: {
-          openid: 'ojRIYxPNI8lSTa_GUR_IlA2LNQFw'
-        }
-      })
+          openid: 'ojRIYxPNI8lSTa_GUR_IlA2LNQFw',
+        },
+      });
     } catch (error) {
-      assert(error.message === 'Missing public app ID.')
+      assert(error.message === 'Missing public app ID.');
     }
-  })
-})
+  });
+});

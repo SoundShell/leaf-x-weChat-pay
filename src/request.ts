@@ -1,37 +1,37 @@
-import { fetch } from '@leaf-x/fetch'
-import * as camelcaseKeys from 'camelcase-keys'
-import * as snakeCaseKeys from 'snakecase-keys'
+import {fetch} from '@leaf-x/fetch';
+import * as camelcaseKeys from 'camelcase-keys';
+import * as snakeCaseKeys from 'snakecase-keys';
 import {
   InitRequest,
-  InitValidateResponse
-} from '../src/interface/request.interface'
-import { getRequestToken, initValidateResponseSign } from './token'
+  InitValidateResponse,
+} from '../src/interface/request.interface';
+import {getRequestToken, initValidateResponseSign} from './token';
 
-const initValidateResponse: InitValidateResponse = (options) => ({
+const initValidateResponse: InitValidateResponse = options => ({
   data,
-  headers
+  headers,
 }) => {
   const result = initValidateResponseSign(options)({
     nonceStr: headers['wechatpay-nonce'] as string,
     timestamp: headers['wechatpay-timestamp'] as string,
     sign: headers['wechatpay-signature'] as string,
     serialNo: headers['wechatpay-serial'] as string,
-    body: data as Record<string, unknown>
-  })
+    body: data as Record<string, unknown>,
+  });
 
   if (!result) {
-    throw { status: 403, message: 'Response signature error.' }
+    throw {status: 403, message: 'Response signature error.'};
   }
 
-  return camelcaseKeys(data as Record<string, unknown>, { deep: true })
-}
+  return camelcaseKeys(data as Record<string, unknown>, {deep: true});
+};
 
-export const initRequest: InitRequest = (options) => async ({
+export const initRequest: InitRequest = options => async ({
   method = 'GET',
   url,
   body,
-  headers = { 'content-type': 'application/json; charset=utf-8' },
-  publicApp = false
+  headers = {'content-type': 'application/json; charset=utf-8'},
+  publicApp = false,
 }) => {
   const {
     appId,
@@ -40,23 +40,23 @@ export const initRequest: InitRequest = (options) => async ({
     merchantId,
     serialNo,
     schema,
-    timeout = 3000
-  } = options
-  const json = typeof body === 'object' && body !== null
+    timeout = 3000,
+  } = options;
+  const json = typeof body === 'object' && body !== null;
 
   if (body && json) {
     Object.assign(body, {
       appid: publicApp ? publicAppId : appId,
-      mchid: merchantId
-    })
+      mchid: merchantId,
+    });
   }
 
   const data =
     body && json
       ? JSON.stringify(
-          snakeCaseKeys(body as Record<string, unknown>, { deep: true })
+          snakeCaseKeys(body as Record<string, unknown>, {deep: true})
         )
-      : null
+      : null;
 
   const token = getRequestToken({
     method,
@@ -65,18 +65,18 @@ export const initRequest: InitRequest = (options) => async ({
     privateKey,
     merchantId,
     serialNo,
-    timestamp: `${parseInt((Date.now() / 1000).toString())}`
-  })
+    timestamp: `${parseInt((Date.now() / 1000).toString())}`,
+  });
 
   Object.assign(headers, {
     Authorization: `${schema} ${token}`,
-    'user-agent': `Node.js(${process.version}) OS(${process.platform}/${process.arch})`
-  })
+    'user-agent': `Node.js(${process.version}) OS(${process.platform}/${process.arch})`,
+  });
 
   return fetch(url, {
     method,
     body: data,
     headers,
-    timeout
-  }).then(initValidateResponse(options))
-}
+    timeout,
+  }).then(initValidateResponse(options));
+};

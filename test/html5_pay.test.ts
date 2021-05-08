@@ -1,8 +1,8 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as moment from 'moment'
-import * as path from 'path'
-import { weChatPay } from '../src/weChatPay'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as moment from 'moment';
+import * as path from 'path';
+import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/html5Pay.test.ts', () => {
   it('should be the result of getting the HTML5 payment', async () => {
@@ -15,8 +15,11 @@ describe('test/html5Pay.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     const result = await pay.getHtml5Pay({
       description: 'test',
@@ -28,17 +31,17 @@ describe('test/html5Pay.test.ts', () => {
       notifyUrl: 'https://dev.api.thallonet.com/v3/weChatPayNotifies',
       amount: {
         total: 1,
-        currency: 'CNY'
+        currency: 'CNY',
       },
       sceneInfo: {
         payerClientIp: '127.0.0.0',
         h5Info: {
-          type: 'Wap'
-        }
-      }
-    })
+          type: 'Wap',
+        },
+      },
+    });
 
-    assert(typeof result === 'object')
-    assert(typeof result.url === 'string')
-  })
-})
+    assert(typeof result === 'object');
+    assert(typeof result.url === 'string');
+  });
+});

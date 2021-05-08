@@ -1,10 +1,10 @@
-import { GetTokenResult } from './token.interface'
+import {GetTokenResult} from './token.interface';
 import {
   AmountOptions,
   OrderOptions,
   SceneInfoOptions,
-  WeChatPayOptions
-} from './weChatPay.interface'
+  WeChatPayOptions,
+} from './we_chat_pay.interface';
 
 /**
  * Get application payment options.
@@ -15,12 +15,12 @@ export interface GetAppPayOptions extends OrderOptions {
   /**
    * Payment amount options.
    */
-  amount: AmountOptions
+  amount: AmountOptions;
 
   /**
    * Payment scenario information options.
    */
-  sceneInfo: SceneInfoOptions
+  sceneInfo: SceneInfoOptions;
 }
 
 /**
@@ -32,22 +32,22 @@ export interface GetAppPayResult extends GetTokenResult {
   /**
    * Application ID.
    */
-  appId: string
+  appId: string;
 
   /**
    * Merchant ID.
    */
-  partnerId: string
+  partnerId: string;
 
   /**
    * Pre-payment ID.
    */
-  prepayId: string
+  prepayId: string;
 
   /**
    * Payment details extended string.
    */
-  package: string
+  package: string;
 }
 
 /**
@@ -57,7 +57,7 @@ export interface GetAppPayResult extends GetTokenResult {
  * @return GetAppPay
  */
 export interface InitGetAppPay {
-  (options: WeChatPayOptions): GetAppPay
+  (options: WeChatPayOptions): GetAppPay;
 }
 
 /**
@@ -67,5 +67,5 @@ export interface InitGetAppPay {
  * @return Promise<GetAppPayResult>
  */
 export interface GetAppPay {
-  (options: GetAppPayOptions): Promise<GetAppPayResult>
+  (options: GetAppPayOptions): Promise<GetAppPayResult>;
 }

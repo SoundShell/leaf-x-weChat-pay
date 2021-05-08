@@ -1,4 +1,4 @@
-import { WeChatPayOptions } from './weChatPay.interface'
+import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
  * Decrypt options.
@@ -7,32 +7,32 @@ export interface DecryptOptions {
   /**
    * Encryption algorithms.
    */
-  algorithm: string
+  algorithm: string;
 
   /**
    * Base64 encoded cipher text.
    */
-  ciphertext: string
+  ciphertext: string;
 
   /**
    * Additional data packages.
    */
-  associatedData?: string
+  associatedData?: string;
 
   /**
    * Object type before encryption.
    */
-  originalType: string
+  originalType: string;
 
   /**
    * Random string initialization vector used for encryption.
    */
-  nonce: string
+  nonce: string;
 
   /**
    * Whether to format as JSON.
    */
-  formatJson?: boolean
+  formatJson?: boolean;
 }
 
 /**
@@ -42,7 +42,7 @@ export interface DecryptOptions {
  * @return Decrypt
  */
 export interface InitDecrypt {
-  (options: WeChatPayOptions): Decrypt
+  (options: WeChatPayOptions): Decrypt;
 }
 
 /**
@@ -52,5 +52,5 @@ export interface InitDecrypt {
  * @return string | Record<string, unknown>
  */
 export interface Decrypt {
-  (options: DecryptOptions): string | Record<string, unknown>
+  (options: DecryptOptions): string | Record<string, unknown>;
 }

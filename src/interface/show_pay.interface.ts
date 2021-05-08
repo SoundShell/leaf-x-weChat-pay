@@ -1,4 +1,4 @@
-import { WeChatPayOptions } from './weChatPay.interface'
+import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
  * Show payment options.
@@ -7,12 +7,12 @@ export interface ShowPayOptions {
   /**
    * Transaction ID.
    */
-  transactionId?: string
+  transactionId?: string;
 
   /**
    * Merchant order number.
    */
-  outTradeNo?: string
+  outTradeNo?: string;
 }
 
 /**
@@ -22,27 +22,27 @@ export interface ShowPayResult {
   /**
    * Application ID.
    */
-  appid: string
+  appid: string;
 
   /**
    * Merchant ID.
    */
-  mchid: string
+  mchid: string;
 
   /**
    * Merchant order number.
    */
-  outTradeNo: string
+  outTradeNo: string;
 
   /**
    * Transaction ID.
    */
-  transactionId?: string
+  transactionId?: string;
 
   /**
    * Transaction type.
    */
-  tradeType?: string
+  tradeType?: string;
 
   /**
    * Transaction status.
@@ -54,27 +54,27 @@ export interface ShowPayResult {
     | 'CLOSED'
     | 'REVOKED'
     | 'USERPAYING'
-    | 'PAYERROR'
+    | 'PAYERROR';
 
   /**
    * Transaction status description.
    */
-  tradeStateDesc: string
+  tradeStateDesc: string;
 
   /**
    * Payment bank.
    */
-  bankType?: string
+  bankType?: string;
 
   /**
    * Additional data.
    */
-  attach?: string
+  attach?: string;
 
   /**
    * Payment completion time.
    */
-  successTime?: string
+  successTime?: string;
 
   /**
    * WeChat public user information.
@@ -83,8 +83,8 @@ export interface ShowPayResult {
     /**
      * WeChat public user ID.
      */
-    openid: string
-  }
+    openid: string;
+  };
 
   /**
    * Payment amount.
@@ -93,23 +93,23 @@ export interface ShowPayResult {
     /**
      * Total amount
      */
-    total: number
+    total: number;
 
     /**
      * Currency type.
      */
-    currency: string
+    currency: string;
 
     /**
      * User payment amount.
      */
-    payerTotal: number
+    payerTotal: number;
 
     /**
      * User payment currency.
      */
-    payerCurrency: string
-  }
+    payerCurrency: string;
+  };
 }
 
 /**
@@ -119,7 +119,7 @@ export interface ShowPayResult {
  * @return ShowPay
  */
 export interface InitShowPay {
-  (options: WeChatPayOptions): ShowPay
+  (options: WeChatPayOptions): ShowPay;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface InitShowPay {
  * @return Promise<ShowPayResult>
  */
 export interface ShowPay {
-  (options: ShowPayOptions): Promise<ShowPayResult>
+  (options: ShowPayOptions): Promise<ShowPayResult>;
 }

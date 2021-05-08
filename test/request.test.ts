@@ -1,9 +1,9 @@
-import * as assert from 'assert'
-import * as fs from 'fs'
-import * as moment from 'moment'
-import * as path from 'path'
-import { GetAppPayResult } from '../src/interface/appPay.interface'
-import { initRequest } from '../src/request'
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as moment from 'moment';
+import * as path from 'path';
+import {GetAppPayResult} from '../src/interface/app_pay.interface';
+import {initRequest} from '../src/request';
 
 describe('test/request.test.ts', () => {
   it('should be the result of correct response to the request', async () => {
@@ -17,8 +17,11 @@ describe('test/request.test.ts', () => {
         path.join(__dirname, '../public/certificate/privateKey.pem'),
         'ascii'
       ),
-      publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-    })
+      publicCertificateDir: path.join(
+        __dirname,
+        '../public/certificate/weChat'
+      ),
+    });
 
     const result = (await request({
       method: 'POST',
@@ -33,15 +36,15 @@ describe('test/request.test.ts', () => {
         notifyUrl: 'https://dev.api.thallonet.com/v3/weChatPayNotifies',
         amount: {
           total: 1,
-          currency: 'CNY'
+          currency: 'CNY',
         },
         sceneInfo: {
-          payerClientIp: '127.0.0.0'
-        }
-      }
-    })) as GetAppPayResult
+          payerClientIp: '127.0.0.0',
+        },
+      },
+    })) as GetAppPayResult;
 
-    assert(typeof result === 'object')
-    assert(result.prepayId)
-  })
-})
+    assert(typeof result === 'object');
+    assert(result.prepayId);
+  });
+});

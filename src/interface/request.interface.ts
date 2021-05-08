@@ -1,5 +1,5 @@
-import { HandleResponseResult } from '@leaf-x/fetch'
-import { WeChatPayOptions } from './weChatPay.interface'
+import {HandleResponseResult} from '@leaf-x/fetch';
+import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
  * Execute the request options.
@@ -18,27 +18,27 @@ export interface ExecRequestOptions {
     | 'PATCH'
     | 'PURGE'
     | 'LINK'
-    | 'UNLINK'
+    | 'UNLINK';
 
   /**
    * Request headers.
    */
-  headers?: Record<string, string>
+  headers?: Record<string, string>;
 
   /**
    * Request URL address.
    */
-  url: string
+  url: string;
 
   /**
    * Request body.
    */
-  body?: unknown
+  body?: unknown;
 
   /**
    * Whether the WeChat public request.
    */
-  publicApp?: boolean
+  publicApp?: boolean;
 }
 
 /**
@@ -48,7 +48,7 @@ export interface ExecRequestOptions {
  * @return Request
  */
 export interface InitRequest {
-  (options: WeChatPayOptions): Request
+  (options: WeChatPayOptions): Request;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface InitRequest {
  * @return Promise<unknown>
  */
 export interface Request {
-  (options: ExecRequestOptions): Promise<unknown>
+  (options: ExecRequestOptions): Promise<unknown>;
 }
 
 /**
@@ -68,7 +68,7 @@ export interface Request {
  * @return ValidateResponse
  */
 export interface InitValidateResponse {
-  (options: WeChatPayOptions): ValidateResponse
+  (options: WeChatPayOptions): ValidateResponse;
 }
 
 /**
@@ -78,5 +78,5 @@ export interface InitValidateResponse {
  * @return Record<string, unknown>
  */
 export interface ValidateResponse {
-  (options: HandleResponseResult): Record<string, unknown>
+  (options: HandleResponseResult): Record<string, unknown>;
 }
