@@ -10,7 +10,7 @@ import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/token.test.ts', () => {
   it('should be the result of getting the request token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
+    const timestamp = `${Math.trunc(Date.now() / 1000)}`;
     const result = getRequestToken({
       method: 'POST',
       url: 'https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi',
@@ -27,7 +27,7 @@ describe('test/token.test.ts', () => {
   });
 
   it('should be the result of getting JavaScript API token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
+    const timestamp = `${Math.trunc(Date.now() / 1000)}`;
     const result = getJavascriptApiToken({
       appId: 'POST',
       prepayString: 'prepay_id=86739283838457',
@@ -42,7 +42,7 @@ describe('test/token.test.ts', () => {
   });
 
   it('should be the result of getting the application token', async () => {
-    const timestamp = `${parseInt((Date.now() / 1000).toString())}`;
+    const timestamp = `${Math.trunc(Date.now() / 1000)}`;
     const result = getAppToken({
       appId: 'dnZzZGZ3MTIzMjFkZmZnZw==',
       prepayId: '556621223334',

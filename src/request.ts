@@ -65,7 +65,7 @@ export const initRequest: InitRequest = options => async ({
     privateKey,
     merchantId,
     serialNo,
-    timestamp: `${parseInt((Date.now() / 1000).toString())}`,
+    timestamp: `${Math.trunc(Date.now() / 1000)}`,
   });
 
   Object.assign(headers, {

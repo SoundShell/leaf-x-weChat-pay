@@ -26,7 +26,7 @@ export const initGetJavascriptApiPay: InitGetJavascriptApiPay = weChatPayOptions
     appId: publicAppId,
     prepayString,
     privateKey,
-    timestamp: `${parseInt((Date.now() / 1000).toString())}`,
+    timestamp: `${Math.trunc(Date.now() / 1000)}`,
   });
 
   return {

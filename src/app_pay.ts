@@ -20,7 +20,7 @@ export const initGetAppPay: InitGetAppPay = weChatPayOptions => async options =>
     appId,
     prepayId,
     privateKey,
-    timestamp: `${parseInt((Date.now() / 1000).toString())}`,
+    timestamp: `${Math.trunc(Date.now() / 1000)}`,
   });
 
   return {
