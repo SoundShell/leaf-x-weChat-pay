@@ -66,7 +66,7 @@ export const getRequestToken: GetRequestToken = ({
 }) => {
   const nonceString = generateNonceString(17);
   const {pathname, search} = new URL(url);
-  const path = decodeURIComponent(`${pathname}${search}`);
+  const path = encodeURI(`${pathname}${search}`);
   const bodyString =
     body && typeof body === 'object' && body !== null
       ? JSON.stringify(body)
