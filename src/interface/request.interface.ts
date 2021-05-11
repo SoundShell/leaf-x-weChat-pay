@@ -2,9 +2,9 @@ import {HandleResponseResult} from '@leaf-x/fetch';
 import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
- * Execute the request options.
+ * Request options.
  */
-export interface ExecRequestOptions {
+export interface RequestOptions {
   /**
    * HTTP request method.
    */
@@ -54,11 +54,11 @@ export interface InitRequest {
 /**
  * Request.
  *
- * @param options ExecRequestOptions
+ * @param options RequestOptions
  * @return Promise<unknown>
  */
 export interface Request {
-  (options: ExecRequestOptions): Promise<unknown>;
+  (options: RequestOptions): Promise<unknown>;
 }
 
 /**

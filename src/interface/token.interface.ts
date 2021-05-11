@@ -1,4 +1,4 @@
-import {ExecRequestOptions} from './request.interface';
+import {RequestOptions} from './request.interface';
 import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
@@ -68,7 +68,7 @@ export interface GetRequestTokenOptions {
   /**
    * HTTP request method.
    */
-  method: ExecRequestOptions['method'];
+  method: RequestOptions['method'];
 
   /**
    * Request URL address.
