@@ -64,11 +64,11 @@ export interface Request {
 /**
  * Initialize the validate response.
  *
- * @param options WeChatPayOptions
+ * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponse
  */
 export interface InitValidateResponse {
-  (options: WeChatPayOptions): ValidateResponse;
+  (publicCertificateDir: string): ValidateResponse;
 }
 
 /**

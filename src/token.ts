@@ -58,7 +58,7 @@ const validateSign: ValidateSign = ({publicKey, sign, signString}) => {
 export const getRequestToken: GetRequestToken = ({
   method,
   url,
-  body = null,
+  body,
   privateKey,
   merchantId,
   serialNo,
@@ -67,12 +67,12 @@ export const getRequestToken: GetRequestToken = ({
   const nonceString = generateNonceString(17);
   const {pathname, search} = new URL(url);
   const path = encodeURI(`${pathname}${search}`);
-  const bodyString =
+  const data =
     body && typeof body === 'object' && body !== null
       ? JSON.stringify(body)
       : body;
 
-  const signString = `${[method, path, timestamp, nonceString, bodyString].join(
+  const signString = `${[method, path, timestamp, nonceString, data].join(
     '\n'
   )}\n`;
 
@@ -127,41 +127,37 @@ export const getAppToken: GetAppToken = ({
   };
 };
 
-export const initValidateResponseSign: InitValidateResponseSign = ({
-  publicCertificateDir,
-}) => ({nonceStr, timestamp, body, sign, serialNo}) => {
-  if (!publicCertificateDir) {
-    throw new Error('Missing public key certificate directory.');
-  }
+export const initValidateResponseSign: InitValidateResponseSign =
+  publicCertificateDir =>
+  ({nonceStr, timestamp, body, sign, serialNo}) => {
+    const signString = `${[
+      timestamp,
+      nonceStr,
+      JSON.stringify(snakeCaseKeys(body, {deep: true})),
+    ].join('\n')}\n`;
 
-  const signString = `${[
-    timestamp,
-    nonceStr,
-    JSON.stringify(snakeCaseKeys(body, {deep: true})),
-  ].join('\n')}\n`;
+    const certificateNames = fs.readdirSync(publicCertificateDir);
 
-  const certificateNames = fs.readdirSync(publicCertificateDir);
+    let certificate!: string;
 
-  let certificate!: string;
+    for (const certificateName of certificateNames) {
+      const path = `${publicCertificateDir}/${certificateName}`;
+      const certificateItem = Certificate.fromPEM(fs.readFileSync(path));
 
-  for (const certificateName of certificateNames) {
-    const path = `${publicCertificateDir}/${certificateName}`;
-    const item = Certificate.fromPEM(fs.readFileSync(path));
+      if (certificateItem.serialNumber.toUpperCase() === serialNo) {
+        certificate = certificateItem.publicKeyRaw.toString('base64');
+      }
 
-    if (item.serialNumber.toUpperCase() === serialNo) {
-      certificate = item.publicKeyRaw.toString('base64');
+      const unlink = new Date(certificateItem.validTo).valueOf() <= Date.now();
+
+      if (unlink) {
+        fs.unlinkSync(path);
+      }
     }
 
-    const unlink = new Date(item.validTo).valueOf() <= Date.now();
-
-    if (unlink) {
-      fs.unlinkSync(path);
+    if (!certificate) {
+      throw new Error('No valid certificate found.');
     }
-  }
 
-  if (!certificate) {
-    throw new Error('No valid certificate found.');
-  }
-
-  return validateSign({sign, signString, publicKey: certificate});
-};
+    return validateSign({sign, signString, publicKey: certificate});
+  };

@@ -20,7 +20,9 @@ export const weChatPay: WeChatPay = ({
     showPay: initShowPay(options),
     getJavascriptApiPay: initGetJavascriptApiPay(options),
     getPublicKeyCertificate: initGetPublicKeyCertificate(options),
-    validateResponseSign: initValidateResponseSign(options),
-    decrypt: initDecrypt(options),
+    validateResponseSign: initValidateResponseSign(
+      options.publicCertificateDir
+    ),
+    decrypt: initDecrypt(options.merchantKey),
   };
 };

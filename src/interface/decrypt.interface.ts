@@ -1,5 +1,3 @@
-import {WeChatPayOptions} from './we_chat_pay.interface';
-
 /**
  * Decrypt options.
  */
@@ -38,11 +36,11 @@ export interface DecryptOptions {
 /**
  * Initialize decrypt.
  *
- * @param options WeChatPayOptions
+ * @param merchantKey Merchant key.
  * @return Decrypt
  */
 export interface InitDecrypt {
-  (options: WeChatPayOptions): Decrypt;
+  (merchantKey: string): Decrypt;
 }
 
 /**

@@ -28,7 +28,7 @@ export interface WeChatPayOptions {
   /**
    * Merchant key.
    */
-  merchantKey?: string;
+  merchantKey: string;
 
   /**
    * Encryption algorithm mode.
@@ -43,14 +43,9 @@ export interface WeChatPayOptions {
   privateKey: string;
 
   /**
-   * Public key certificate path.
-   */
-  publicCertificatePath?: string;
-
-  /**
    * Public key certificate directory.
    */
-  publicCertificateDir?: string;
+  publicCertificateDir: string;
 
   /**
    * Certificate number.

@@ -50,11 +50,21 @@ export interface InitGetHtml5Pay {
 }
 
 /**
+ * Get HTML5 payment results.
+ */
+export interface GetHtml5PayResult {
+  /**
+   * Payment URL address.
+   */
+  url: string;
+}
+
+/**
  * Get HTML5 payment.
  *
  * @param options Html5PayOptions
- * @return Promise<{ url: string }>
+ * @return Promise<GetHtml5PayResult>
  */
 export interface GetHtml5Pay {
-  (options: Html5PayOptions): Promise<{url: string}>;
+  (options: Html5PayOptions): Promise<GetHtml5PayResult>;
 }

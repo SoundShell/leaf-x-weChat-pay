@@ -1,5 +1,4 @@
 import {RequestOptions} from './request.interface';
-import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
  * Generate random string.
@@ -264,11 +263,11 @@ export interface ValidateResponseSignOptions {
 /**
  * Initialize the validate response signature.
  *
- * @param options WeChatPayOptions
+ * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponseSign
  */
 export interface InitValidateResponseSign {
-  (options: WeChatPayOptions): ValidateResponseSign;
+  (publicCertificateDir: string): ValidateResponseSign;
 }
 
 /**

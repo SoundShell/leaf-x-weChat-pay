@@ -92,6 +92,7 @@ describe('test/decrypt.test.ts', () => {
 
   it('should be the result of decrypting the missing merchant key', async () => {
     const pay = weChatPay({
+      merchantKey: '123',
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
