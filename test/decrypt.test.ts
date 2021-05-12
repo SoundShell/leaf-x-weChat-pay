@@ -4,7 +4,7 @@ import * as path from 'path';
 import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/decrypt.test.ts', () => {
-  it('should be the result of decrypting and converting to JSON', async () => {
+  it('should be the result of decrypting and converting JSON', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -61,7 +61,7 @@ describe('test/decrypt.test.ts', () => {
     assert(typeof result === 'string');
   });
 
-  it('should be the result of decryption failure', async () => {
+  it('should be the result of a decryption failure', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -90,7 +90,7 @@ describe('test/decrypt.test.ts', () => {
     }
   });
 
-  it('should be the result of decrypting the missing merchant key', async () => {
+  it('should be the result of a missing merchant keys.', async () => {
     const pay = weChatPay({
       merchantKey: '123',
       appId: 'wx3fb47680dc1a2e20',

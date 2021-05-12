@@ -10,6 +10,8 @@ import {getRequestToken, initValidateResponseSign} from './token';
 const initValidateResponse: InitValidateResponse =
   publicCertificateDir =>
   ({data, headers}) => {
+    // console.info(data, headers);
+
     const result = initValidateResponseSign(publicCertificateDir)({
       nonceStr: headers['wechatpay-nonce'] as string,
       timestamp: headers['wechatpay-timestamp'] as string,
@@ -37,12 +39,6 @@ export const initRequest: InitRequest =
     timeout = 3000,
   }) =>
   async ({method = 'GET', url, body, headers, publicApp = false}) => {
-    const {
-      'content-type': contentType = 'application/json; charset=utf-8',
-      accept = '*/*',
-      ...args
-    } = headers ?? {};
-
     const json = typeof body === 'object' && body !== null;
     const jsonData = body && json;
 
@@ -57,7 +53,7 @@ export const initRequest: InitRequest =
       ? JSON.stringify(
           snakeCaseKeys(body as Record<string, unknown>, {deep: true})
         )
-      : null;
+      : undefined;
 
     const token = getRequestToken({
       method,
@@ -73,11 +69,9 @@ export const initRequest: InitRequest =
       method,
       body: data,
       headers: {
-        'content-type': contentType,
-        accept,
+        ...headers,
         Authorization: `${schema} ${token}`,
         'user-agent': `Node.js(${process.version}) OS(${process.platform}/${process.arch})`,
-        ...args,
       },
       timeout,
     }).then(initValidateResponse(publicCertificateDir));

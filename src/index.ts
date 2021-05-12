@@ -15,4 +15,7 @@ export * from './public_key_certificate';
 export * from './request';
 export * from './show_pay';
 export * from './token';
-export * from './we_chat_pay';
+export {weChatPay};
+import {weChatPay as relWeChatPay} from './we_chat_pay';
+
+const weChatPay = relWeChatPay;
