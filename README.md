@@ -25,7 +25,7 @@ WeChat pay V3 API.
 ## Usage
 
 ```typescript
-import { weChat } from '@leaf-x/we-chat-pay'
+import {weChat} from '@leaf-x/we-chat-pay';
 
 const pay = weChat({
   appId: 'wx3fb476821568i',
@@ -33,20 +33,20 @@ const pay = weChat({
   merchantKey: '123db752cf2c6955122d26d5',
   serialNo: '6D22333S311033394317A3332C444F31112371F',
   privateKey: fs.readFileSync(
-    path.join(__dirname, '../public/certificate/privateKey.pem'),
+    path.join(__dirname, '../public/certificate/private_key.pem'),
     'ascii'
   ),
-  publicCertificateDir: path.join(__dirname, '../public/certificate/weChat')
-})
+  publicCertificateDir: path.join(__dirname, '../public/certificate/we_chat'),
+});
 
 const result = await pay.getAppPay({
   description: 'test',
   outTradeNo: '2133455555111233567',
   timeExpire: new Date(),
-  notifyUrl: 'https://dev.api.xxxx.com/v3/notifies',
-  amount: { total: 1, currency: 'CNY' },
-  sceneInfo: { payerClientIp: '127.0.0.0' }
-})
+  notifyUrl: 'https://dev.api.leaf-x.com/v3/notifies',
+  amount: {total: 1, currency: 'CNY'},
+  sceneInfo: {payerClientIp: '127.0.0.0'},
+});
 
-console.info(result)
+console.info(result);
 ```

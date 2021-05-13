@@ -17,7 +17,7 @@ describe('test/token.test.ts', () => {
       method: 'POST',
       url: 'https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       merchantId: 'ZmZmc2Rmcw==',
@@ -35,7 +35,7 @@ describe('test/token.test.ts', () => {
       body: {},
       url: 'https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       merchantId: 'ZmZmc2Rmcw==',
@@ -52,7 +52,7 @@ describe('test/token.test.ts', () => {
       appId: 'POST',
       prepayString: 'prepay_id=86739283838457',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       timestamp,
@@ -67,7 +67,7 @@ describe('test/token.test.ts', () => {
       appId: 'dnZzZGZ3MTIzMjFkZmZnZw==',
       prepayId: '556621223334',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       timestamp,
@@ -83,12 +83,12 @@ describe('test/token.test.ts', () => {
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       publicCertificateDir: path.join(
         __dirname,
-        '../public/certificate/weChat'
+        '../public/certificate/we_chat'
       ),
     });
 
@@ -119,7 +119,7 @@ describe('test/token.test.ts', () => {
 
   it('should be the result of an invalid certificate', async () => {
     const responseSign = initValidateResponseSign(
-      path.join(__dirname, '../public/certificate/weChat')
+      path.join(__dirname, '../public/certificate/we_chat')
     );
 
     try {
@@ -154,7 +154,7 @@ describe('test/token.test.ts', () => {
     sinon.stub(fs, 'unlinkSync').returns();
 
     const responseSign = initValidateResponseSign(
-      path.join(__dirname, '../public/certificate/weChat')
+      path.join(__dirname, '../public/certificate/we_chat')
     );
 
     responseSign({

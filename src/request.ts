@@ -10,8 +10,6 @@ import {getRequestToken, initValidateResponseSign} from './token';
 const initValidateResponse: InitValidateResponse =
   publicCertificateDir =>
   ({data, headers}) => {
-    // console.info(data, headers);
-
     const result = initValidateResponseSign(publicCertificateDir)({
       nonceStr: headers['wechatpay-nonce'] as string,
       timestamp: headers['wechatpay-timestamp'] as string,

@@ -11,12 +11,12 @@ describe('test/decrypt.test.ts', () => {
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       publicCertificateDir: path.join(
         __dirname,
-        '../public/certificate/weChat'
+        '../public/certificate/we_chat'
       ),
     });
 
@@ -40,12 +40,12 @@ describe('test/decrypt.test.ts', () => {
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       publicCertificateDir: path.join(
         __dirname,
-        '../public/certificate/weChat'
+        '../public/certificate/we_chat'
       ),
     });
 
@@ -68,12 +68,12 @@ describe('test/decrypt.test.ts', () => {
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       publicCertificateDir: path.join(
         __dirname,
-        '../public/certificate/weChat'
+        '../public/certificate/we_chat'
       ),
     });
 
@@ -97,12 +97,12 @@ describe('test/decrypt.test.ts', () => {
       merchantId: '1565407881',
       serialNo: '6D2D23C326CC033394317A34702C281EF316D71F',
       privateKey: fs.readFileSync(
-        path.join(__dirname, '../public/certificate/privateKey.pem'),
+        path.join(__dirname, '../public/certificate/private_key.pem'),
         'ascii'
       ),
       publicCertificateDir: path.join(
         __dirname,
-        '../public/certificate/weChat'
+        '../public/certificate/we_chat'
       ),
     });
 
