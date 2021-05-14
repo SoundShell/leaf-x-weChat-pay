@@ -22,13 +22,13 @@ WeChat pay V3 API.
 | url                   | String | https://api.mch.weixin.qq.com | Api url address.                  |
 | timeout               | Number | 3000                          | Timeout time, in milliseconds.    |
 
-## Usage
+## Use
 
 ```typescript
 import {weChat} from '@leaf-x/we-chat-pay';
 
 const pay = weChat({
-  appId: 'wx3fb476821568i',
+  appId: 'wx3fb4x113xx8i',
   merchantId: '2362183',
   merchantKey: '123db752cf2c6955122d26d5',
   serialNo: '6D22333S311033394317A3332C444F31112371F',
