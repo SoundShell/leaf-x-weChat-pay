@@ -10,9 +10,9 @@ WeChat pay V3 API.
 
 | Name                  | Type   | Default Value                 | Description                       |
 | :-------------------- | :----- | :---------------------------- | :-------------------------------- |
-| appId                 | String |                               | WeChat app id.                    |
-| publicAppId           | String |                               | WeChat public id.                 |
-| merchantId            | String | Required                      | Merchant id.                      |
+| appId                 | String |                               | WeChat app ID.                    |
+| publicAppId           | String |                               | WeChat public ID.                 |
+| merchantId            | String | Required                      | Merchant ID.                      |
 | merchantKey           | String | Required                      | Merchant key.                     |
 | schema                | string | WECHATPAY2-SHA256-RSA2048     | Encryption algorithm mode.        |
 | privateKey            | String | Required                      | Private key.                      |

@@ -5,7 +5,7 @@ import {WeChatPayOptions} from './we_chat_pay.interface';
  */
 export interface ShowPayOptions {
   /**
-   * Transaction ID.
+   * WeChat payment order number.
    */
   transactionId?: string;
 
@@ -25,7 +25,7 @@ export interface ShowPayResult {
   appid: string;
 
   /**
-   * Merchant ID.
+   * Directly connected merchant number.
    */
   mchid: string;
 
@@ -35,14 +35,14 @@ export interface ShowPayResult {
   outTradeNo: string;
 
   /**
-   * Transaction ID.
+   * WeChat payment order number.
    */
   transactionId?: string;
 
   /**
    * Transaction type.
    */
-  tradeType?: string;
+  tradeType?: 'JSAPI' | 'NATIVE' | 'APP' | 'MICROPAY' | 'MWEB' | 'FACEPAY';
 
   /**
    * Transaction status.
@@ -54,7 +54,8 @@ export interface ShowPayResult {
     | 'CLOSED'
     | 'REVOKED'
     | 'USERPAYING'
-    | 'PAYERROR';
+    | 'PAYERROR'
+    | 'ACCEPT';
 
   /**
    * Transaction status description.
@@ -77,21 +78,21 @@ export interface ShowPayResult {
   successTime?: string;
 
   /**
-   * WeChat public user information.
+   * Payer information.
    */
   payer: {
     /**
-     * WeChat public user ID.
+     * User identification.
      */
     openid: string;
   };
 
   /**
-   * Payment amount.
+   * Order amount.
    */
   amount: {
     /**
-     * Total amount
+     * Total amount.
      */
     total: number;
 
@@ -110,10 +111,12 @@ export interface ShowPayResult {
      */
     payerCurrency: string;
   };
+
+  [key: string]: unknown;
 }
 
 /**
- * Initialize show payment.
+ * Initialize the show of payments.
  *
  * @param options WeChatPayOptions
  * @return ShowPay

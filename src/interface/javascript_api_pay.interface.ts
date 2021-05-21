@@ -6,29 +6,29 @@ import {
 } from './we_chat_pay.interface';
 
 /**
- * Get JavaScript API payment options.
+ * Get Javascript API payment options.
  *
  * @extends OrderOptions
  */
 export interface GetJavascriptApiPayOptions extends OrderOptions {
   /**
-   * Payment amount options.
+   * Payment amount.
    */
   amount: AmountOptions;
 
   /**
-   * WeChat public user information.
+   * Payer information.
    */
   payer: {
     /**
-     * WeChat public user ID.
+     * User identification.
      */
     openid: string;
   };
 }
 
 /**
- * Get JavaScript API payment result.
+ * Get Javascript API payment result.
  *
  * @extends GetTokenResult
  */
@@ -44,18 +44,18 @@ export interface GetJavascriptApiPayResult extends GetTokenResult {
   signType: string;
 
   /**
-   * Payment details extended string.
+   * Order details extension data.
    */
   package: {
     /**
-     * Pre-payment ID.
+     * Prepaid session ID.
      */
     prepayId: string;
   };
 }
 
 /**
- * Initialize to get JavaScript API payment.
+ * Initialize to get Javascript API payment.
  *
  * @param options WeChatPayOptions
  * @return GetJavascriptApiPay
@@ -65,7 +65,7 @@ export interface InitGetJavascriptApiPay {
 }
 
 /**
- * Get JavaScript API payment.
+ * Get Javascript API payment.
  *
  * @param options GetJavascriptApiPayOptions
  * @return Promise<GetJavascriptApiPayResult>

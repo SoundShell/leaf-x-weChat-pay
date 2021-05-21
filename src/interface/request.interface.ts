@@ -7,6 +7,8 @@ import {WeChatPayOptions} from './we_chat_pay.interface';
 export interface RequestOptions {
   /**
    * HTTP request method.
+   *
+   * Default:GET
    */
   method?:
     | 'POST'
@@ -26,7 +28,7 @@ export interface RequestOptions {
   headers?: Record<string, string>;
 
   /**
-   * Request URL address.
+   * Request URL.
    */
   url: string;
 
@@ -37,12 +39,14 @@ export interface RequestOptions {
 
   /**
    * Whether the WeChat public request.
+   *
+   * Default:false
    */
   publicApp?: boolean;
 }
 
 /**
- * Initialize request.
+ * Initialization request.
  *
  * @param options WeChatPayOptions
  * @return Request
@@ -62,7 +66,7 @@ export interface Request {
 }
 
 /**
- * Initialize the validate response.
+ * Initialize the validation response.
  *
  * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponse
@@ -72,7 +76,7 @@ export interface InitValidateResponse {
 }
 
 /**
- * Validate response.
+ * Validate the response.
  *
  * @param options HandleResponseResult
  * @return Record<string, unknown>

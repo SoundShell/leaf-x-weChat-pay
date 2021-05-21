@@ -8,7 +8,7 @@ import {GetAppPayResult} from '../src';
 import {initRequest} from '../src/request';
 
 describe('test/request.test.ts', () => {
-  it('should be the result of a request', async () => {
+  it('should be a request', async () => {
     sinon.stub(fetch, 'fetch').resolves({
       status: 200,
       data: {prepay_id: 'wx12212924656439279c3662866a9f140000'},
@@ -78,7 +78,7 @@ describe('test/request.test.ts', () => {
     });
   });
 
-  it('should be the result of a response signature error.', async () => {
+  it('should be a request response signature error', async () => {
     sinon.stub(fetch, 'fetch').resolves({
       status: 200,
       data: {prepay_id: 'wx12212924656439279c3662866a9f1'},

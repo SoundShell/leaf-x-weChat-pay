@@ -1,6 +1,6 @@
 import {InitGetJavascriptApiPay} from './interface/javascript_api_pay.interface';
 import {initRequest} from './request';
-import {getJavascriptApiToken} from './token';
+import {getJavascriptApiPayToken} from './token';
 
 export const initGetJavascriptApiPay: InitGetJavascriptApiPay =
   weChatPayOptions => async options => {
@@ -23,7 +23,7 @@ export const initGetJavascriptApiPay: InitGetJavascriptApiPay =
       .map(key => `${key}=${prepay[key as keyof typeof prepay]}`)
       .toString();
 
-    const token = getJavascriptApiToken({
+    const token = getJavascriptApiPayToken({
       appId: publicAppId,
       prepayString,
       privateKey,

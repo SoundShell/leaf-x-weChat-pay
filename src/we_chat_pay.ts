@@ -14,7 +14,7 @@ export const weChatPay: WeChatPay = ({
 }) => {
   const options = {url, schema, ...args};
 
-  return {
+  return Object.freeze({
     getAppPay: initGetAppPay(options),
     getHtml5Pay: initGetHtml5Pay(options),
     showPay: initShowPay(options),
@@ -24,5 +24,5 @@ export const weChatPay: WeChatPay = ({
       options.publicCertificateDir
     ),
     decrypt: initDecrypt(options.merchantKey),
-  };
+  });
 };

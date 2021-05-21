@@ -3,15 +3,15 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as sinon from 'sinon';
 import {
-  getAppToken,
-  getJavascriptApiToken,
+  getAppPayToken,
+  getJavascriptApiPayToken,
   getRequestToken,
   initValidateResponseSign,
 } from '../src/token';
 import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/token.test.ts', () => {
-  it('should be the result of getting the request token', async () => {
+  it('should be no request body to get the request token', async () => {
     const timestamp = `${Math.trunc(Date.now() / 1000)}`;
     const result = getRequestToken({
       method: 'POST',
@@ -28,7 +28,7 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'string');
   });
 
-  it('should be the result of getting the JSON request token', async () => {
+  it('should be a request body to get the request token', async () => {
     const timestamp = `${Math.trunc(Date.now() / 1000)}`;
     const result = getRequestToken({
       method: 'POST',
@@ -46,9 +46,9 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'string');
   });
 
-  it('should be the result of obtaining a JavaScript API token', async () => {
+  it('should be to get Javascript API payment token', async () => {
     const timestamp = `${Math.trunc(Date.now() / 1000)}`;
-    const result = getJavascriptApiToken({
+    const result = getJavascriptApiPayToken({
       appId: 'POST',
       prepayString: 'prepay_id=86739283838457',
       privateKey: fs.readFileSync(
@@ -61,9 +61,9 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'object');
   });
 
-  it('should be the result of getting the application token', async () => {
+  it('should be to get the application payment token', async () => {
     const timestamp = `${Math.trunc(Date.now() / 1000)}`;
-    const result = getAppToken({
+    const result = getAppPayToken({
       appId: 'dnZzZGZ3MTIzMjFkZmZnZw==',
       prepayId: '556621223334',
       privateKey: fs.readFileSync(
@@ -76,7 +76,7 @@ describe('test/token.test.ts', () => {
     assert(typeof result === 'object');
   });
 
-  it('should be the result of a signature verification', async () => {
+  it('should be validate the response signature', async () => {
     const pay = weChatPay({
       appId: 'wx3fb47680dc1a2e20',
       merchantId: '1565407881',
@@ -117,7 +117,7 @@ describe('test/token.test.ts', () => {
     assert(result);
   });
 
-  it('should be the result of an invalid certificate', async () => {
+  it('should be an invalid certificate', async () => {
     const responseSign = initValidateResponseSign(
       path.join(__dirname, '../public/certificate/we_chat')
     );
@@ -149,7 +149,7 @@ describe('test/token.test.ts', () => {
     }
   });
 
-  it('should be the result of an expired certificate', async () => {
+  it('should be an expired certificate', async () => {
     sinon.stub(Date, 'now').returns(1762939888000);
     sinon.stub(fs, 'unlinkSync').returns();
 

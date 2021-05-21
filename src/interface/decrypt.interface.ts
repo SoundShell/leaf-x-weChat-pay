@@ -1,40 +1,42 @@
 /**
- * Decrypt options.
+ * Decryption options.
  */
 export interface DecryptOptions {
   /**
-   * Encryption algorithms.
+   * Encryption algorithm type.
    */
   algorithm: string;
 
   /**
-   * Base64 encoded cipher text.
+   * Data cipher text.
    */
   ciphertext: string;
 
   /**
-   * Additional data packages.
+   * Additional data.
    */
   associatedData?: string;
 
   /**
-   * Object type before encryption.
+   * Original type.
    */
   originalType: string;
 
   /**
-   * Random string initialization vector used for encryption.
+   * Random string.
    */
   nonce: string;
 
   /**
    * Whether to format as JSON.
+   *
+   * Default:false
    */
   formatJson?: boolean;
 }
 
 /**
- * Initialize decrypt.
+ * Initialize decryption.
  *
  * @param merchantKey Merchant key.
  * @return Decrypt

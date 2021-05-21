@@ -6,12 +6,12 @@ import {WeChatPayOptions} from './we_chat_pay.interface';
  */
 export interface PublicKeyCertificate {
   /**
-   * Effective time.
+   * Certificate validity time.
    */
   effectiveTime: string;
 
   /**
-   * Expire time.
+   * Certificate expiration time.
    */
   expireTime: string;
 
@@ -34,21 +34,21 @@ export interface WeChatPublicKeyCertificate extends PublicKeyCertificate {
 }
 
 /**
- * Get the result of the public key certificate.
+ * Get public key certificate result.
  *
  * @extends PublicKeyCertificate
  */
 export interface GetPublicKeyCertificateResult extends PublicKeyCertificate {
   /**
-   * certificate.
+   * Public key certificate.
    */
   certificate: string;
 }
 
 /**
- * Initialize to get public key certificate.
+ * Initialize get the public key certificate.
  *
- * @param options InitPublicKeyCertificate
+ * @param options WeChatPayOptions
  * @return GetPublicKeyCertificate
  */
 export interface InitGetPublicKeyCertificate {
@@ -56,7 +56,7 @@ export interface InitGetPublicKeyCertificate {
 }
 
 /**
- * Get public key certificate.
+ * Get a public key certificate.
  *
  * @return Promise<GetPublicKeyCertificateResult[]>
  */

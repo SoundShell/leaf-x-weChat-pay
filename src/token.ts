@@ -5,8 +5,8 @@ import * as snakeCaseKeys from 'snakecase-keys';
 import {
   FormatSecretKey,
   GenerateNonceString,
-  GetAppToken,
-  GetJavascriptApiToken,
+  GetAppPayToken,
+  GetJavascriptApiPayToken,
   GetRequestToken,
   InitValidateResponseSign,
   Sign,
@@ -46,13 +46,17 @@ const sign: Sign = ({signString, privateKey}) => {
     .sign(key, 'base64');
 };
 
-const validateSign: ValidateSign = ({publicKey, sign, signString}) => {
+const validateSign: ValidateSign = ({
+  publicKey,
+  sign: signature,
+  signString,
+}) => {
   const key = formatSecretKey({secretKey: publicKey, type: 'PUBLIC KEY'});
 
   return crypto
     .createVerify('RSA-SHA256')
     .update(signString)
-    .verify(key, sign, 'base64');
+    .verify(key, signature, 'base64');
 };
 
 export const getRequestToken: GetRequestToken = ({
@@ -91,7 +95,7 @@ export const getRequestToken: GetRequestToken = ({
     .join(',');
 };
 
-export const getJavascriptApiToken: GetJavascriptApiToken = ({
+export const getJavascriptApiPayToken: GetJavascriptApiPayToken = ({
   appId,
   prepayString,
   privateKey,
@@ -109,7 +113,7 @@ export const getJavascriptApiToken: GetJavascriptApiToken = ({
   };
 };
 
-export const getAppToken: GetAppToken = ({
+export const getAppPayToken: GetAppPayToken = ({
   appId,
   prepayId,
   privateKey,
@@ -129,7 +133,7 @@ export const getAppToken: GetAppToken = ({
 
 export const initValidateResponseSign: InitValidateResponseSign =
   publicCertificateDir =>
-  ({nonceStr, timestamp, body, sign, serialNo}) => {
+  ({nonceStr, timestamp, body, sign: signature, serialNo}) => {
     const signString = `${[
       timestamp,
       nonceStr,
@@ -159,5 +163,5 @@ export const initValidateResponseSign: InitValidateResponseSign =
       throw new Error('No valid certificate found.');
     }
 
-    return validateSign({sign, signString, publicKey: certificate});
+    return validateSign({sign: signature, signString, publicKey: certificate});
   };

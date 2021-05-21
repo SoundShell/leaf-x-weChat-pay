@@ -1,6 +1,6 @@
 import {InitGetAppPay} from './interface/app_pay.interface';
 import {initRequest} from './request';
-import {getAppToken} from './token';
+import {getAppPayToken} from './token';
 
 export const initGetAppPay: InitGetAppPay =
   weChatPayOptions => async options => {
@@ -17,7 +17,7 @@ export const initGetAppPay: InitGetAppPay =
       body: options,
     })) as {prepayId: string};
 
-    const token = getAppToken({
+    const token = getAppPayToken({
       appId,
       prepayId,
       privateKey,

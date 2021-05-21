@@ -19,7 +19,9 @@ const initValidateResponse: InitValidateResponse =
     });
 
     if (!result) {
-      throw {status: 403, message: 'Response signature error.'};
+      throw Object.assign(new Error('Response signature error.'), {
+        status: 403,
+      });
     }
 
     return camelcaseKeys(data as Record<string, unknown>, {deep: true});

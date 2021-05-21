@@ -6,7 +6,7 @@ import * as sinon from 'sinon';
 import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/publicKeyCertificate.test.ts', () => {
-  it('should be the result of obtaining a public key certificate', async () => {
+  it('should be to get a public key certificate', async () => {
     sinon.stub(fetch, 'fetch').resolves({
       status: 200,
       data: {

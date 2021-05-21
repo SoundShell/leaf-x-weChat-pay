@@ -12,31 +12,41 @@ import {
  */
 export interface Html5SceneInfoOptions extends SceneInfoOptions {
   /**
-   * HTML5 information.
+   * HTML5 scene information.
    */
   h5Info: {
     /**
-     * Scene type.
+     * Types of payment scenarios.
      */
     type: 'iOS' | 'Android' | 'Wap';
   };
 }
 
 /**
- * HTML5 payment options.
+ * Get HTML5 payment options.
  *
  * @extends OrderOptions
  */
-export interface Html5PayOptions extends OrderOptions {
+export interface GetHtml5PayOptions extends OrderOptions {
   /**
-   * Payment amount options.
+   * Payment amount.
    */
   amount: AmountOptions;
 
   /**
-   * HTML5 payment scenario information.
+   * Payment scenario information.
    */
   sceneInfo: Html5SceneInfoOptions;
+}
+
+/**
+ * Get HTML5 payment result.
+ */
+export interface GetHtml5PayResult {
+  /**
+   * Payment URL.
+   */
+  url: string;
 }
 
 /**
@@ -50,21 +60,11 @@ export interface InitGetHtml5Pay {
 }
 
 /**
- * Get HTML5 payment results.
- */
-export interface GetHtml5PayResult {
-  /**
-   * Payment URL address.
-   */
-  url: string;
-}
-
-/**
  * Get HTML5 payment.
  *
- * @param options Html5PayOptions
+ * @param options GetHtml5PayOptions
  * @return Promise<GetHtml5PayResult>
  */
 export interface GetHtml5Pay {
-  (options: Html5PayOptions): Promise<GetHtml5PayResult>;
+  (options: GetHtml5PayOptions): Promise<GetHtml5PayResult>;
 }

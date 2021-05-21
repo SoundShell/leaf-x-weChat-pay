@@ -1,9 +1,9 @@
 import {RequestOptions} from './request.interface';
 
 /**
- * Generate random string.
+ * Generate a random string.
  *
- * @param length Specify the length of the generated random string.
+ * @param length Specify the length of the random string.
  * @return string
  */
 export interface GenerateNonceString {
@@ -11,11 +11,11 @@ export interface GenerateNonceString {
 }
 
 /**
- * Format key options.
+ * Formatting key options.
  */
 export interface FormatSecretKeyOptions {
   /**
-   * Key.
+   * Key
    */
   secretKey: string;
 
@@ -26,7 +26,7 @@ export interface FormatSecretKeyOptions {
 }
 
 /**
- * Format key.
+ * Formatting key.
  *
  * @param options FormatSecretKeyOptions
  * @return string
@@ -36,9 +36,9 @@ export interface FormatSecretKey {
 }
 
 /**
- * Generate signature options.
+ * Signature options.
  */
-export interface GenerateSignOptions {
+export interface SignOptions {
   /**
    * Signature string.
    */
@@ -53,11 +53,11 @@ export interface GenerateSignOptions {
 /**
  * Signature.
  *
- * @param options GenerateSignOptions
+ * @param options SignOptions
  * @return string
  */
 export interface Sign {
-  (options: GenerateSignOptions): string;
+  (options: SignOptions): string;
 }
 
 /**
@@ -70,7 +70,7 @@ export interface GetRequestTokenOptions {
   method: RequestOptions['method'];
 
   /**
-   * Request URL address.
+   * Request URL.
    */
   url: string;
 
@@ -95,7 +95,7 @@ export interface GetRequestTokenOptions {
   serialNo: string;
 
   /**
-   * Timestamp.
+   * Current timestamp.
    */
   timestamp: string;
 }
@@ -111,16 +111,16 @@ export interface GetRequestToken {
 }
 
 /**
- * Get JavaScript API token options.
+ * Get the Javascript API payment token options.
  */
-export interface GetJavascriptApiTokenOptions {
+export interface GetJavascriptApiPayTokenOptions {
   /**
    * Application ID.
    */
   appId: string;
 
   /**
-   * Prepayment information string.
+   * Prepaid session ID string.
    */
   prepayString: string;
 
@@ -130,7 +130,7 @@ export interface GetJavascriptApiTokenOptions {
   privateKey: string;
 
   /**
-   * Timestamp.
+   * Current timestamp.
    */
   timestamp: string;
 }
@@ -140,12 +140,12 @@ export interface GetJavascriptApiTokenOptions {
  */
 export interface GetTokenResult {
   /**
-   * Random string.
+   * Random strings.
    */
   nonceStr: string;
 
   /**
-   * Timestamp.
+   * Current timestamp.
    */
   timestamp: string;
 
@@ -156,48 +156,48 @@ export interface GetTokenResult {
 }
 
 /**
- * Get JavaScript API token.
+ * Get Javascript Api payment token.
  *
- * @param options GetJavascriptApiTokenOptions
+ * @param options GetJavascriptApiPayTokenOptions
  * @return GetTokenResult
  */
-export interface GetJavascriptApiToken {
-  (options: GetJavascriptApiTokenOptions): GetTokenResult;
+export interface GetJavascriptApiPayToken {
+  (options: GetJavascriptApiPayTokenOptions): GetTokenResult;
 }
 
 /**
- * Get the application token options.
+ * Get the application payment token options.
  */
-export interface GetAppTokenOptions {
+export interface GetAppTokenPayOptions {
   /**
    * Application ID.
    */
   appId: string;
 
   /**
-   * Prepayment ID.
+   * Prepaid session ID.
    */
   prepayId: string;
 
   /**
-   * Private Key.
+   * Private key.
    */
   privateKey: string;
 
   /**
-   * Timestamp.
+   * Current timestamp.
    */
   timestamp: string;
 }
 
 /**
- * Get the application token.
+ * Get the application payment token.
  *
- * @param options GetAppTokenOptions
+ * @param options GetAppTokenPayOptions
  * @return GetTokenResult
  */
-export interface GetAppToken {
-  (options: GetAppTokenOptions): GetTokenResult;
+export interface GetAppPayToken {
+  (options: GetAppTokenPayOptions): GetTokenResult;
 }
 
 /**
@@ -231,16 +231,16 @@ export interface ValidateSign {
 }
 
 /**
- * Validate the response signature options.
+ * Validate the response signature.
  */
 export interface ValidateResponseSignOptions {
   /**
-   * Random string.
+   * Random strings.
    */
   nonceStr: string;
 
   /**
-   * Timestamp.
+   * Signature timestamp.
    */
   timestamp: string;
 
@@ -250,7 +250,7 @@ export interface ValidateResponseSignOptions {
   body: Record<string, unknown>;
 
   /**
-   * Signature.
+   * Response signature.
    */
   sign: string;
 
@@ -265,6 +265,7 @@ export interface ValidateResponseSignOptions {
  *
  * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponseSign
+ *
  */
 export interface InitValidateResponseSign {
   (publicCertificateDir: string): ValidateResponseSign;

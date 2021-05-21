@@ -7,7 +7,7 @@ import * as sinon from 'sinon';
 import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/appPay.test.ts', () => {
-  it('should be the result of obtaining a payment order', async () => {
+  it('should be an application payment', async () => {
     sinon.stub(fetch, 'fetch').resolves({
       status: 200,
       data: {prepay_id: 'wx12212924656439279c3662866a9f140000'},
@@ -74,7 +74,7 @@ describe('test/appPay.test.ts', () => {
       });
   });
 
-  it('should be the result of a missing merchant ID', async () => {
+  it('should be an missing merchant ID', async () => {
     const pay = weChatPay({
       merchantId: '1565407881',
       merchantKey: '53a8a26e2db752cf2c69304f222d26d5',

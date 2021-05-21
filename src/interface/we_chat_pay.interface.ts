@@ -16,7 +16,7 @@ export interface WeChatPayOptions {
   appId?: string;
 
   /**
-   * WeChat public account application ID.
+   * WeChat public number ID.
    */
   publicAppId?: string;
 
@@ -53,16 +53,14 @@ export interface WeChatPayOptions {
   serialNo: string;
 
   /**
-   * Request URL address.
-   *
-   * Default https://api.mch.weixin.qq.com
+   * Request URL.
    */
   url?: string;
 
   /**
-   * The request timeout time in milliseconds.
+   * Request timeout, in milliseconds.
    *
-   * Default 3000ms
+   * Default:3000ms
    */
   timeout?: number;
 }
@@ -72,45 +70,45 @@ export interface WeChatPayOptions {
  */
 export interface WeChatPayResult {
   /**
-   * Get application payment.
+   * Get application payments.
    */
-  getAppPay: GetAppPay;
+  readonly getAppPay: GetAppPay;
 
   /**
-   * Get HTML5 payment.
+   * Get application payments.
    */
-  getHtml5Pay: GetHtml5Pay;
+  readonly getHtml5Pay: GetHtml5Pay;
 
   /**
-   * Get JavaScript API payment.
+   * Get Javascript API payment.
    */
-  getJavascriptApiPay: GetJavascriptApiPay;
+  readonly getJavascriptApiPay: GetJavascriptApiPay;
 
   /**
-   * Get public key certificate.
+   * Get a public key certificate.
    */
-  getPublicKeyCertificate: GetPublicKeyCertificate;
+  readonly getPublicKeyCertificate: GetPublicKeyCertificate;
 
   /**
    * Show payment.
    */
-  showPay: ShowPay;
+  readonly showPay: ShowPay;
 
   /**
    * Validate the response signature.
    */
-  validateResponseSign: ValidateResponseSign;
+  readonly validateResponseSign: ValidateResponseSign;
 
   /**
    * Decrypt.
    */
-  decrypt: Decrypt;
+  readonly decrypt: Decrypt;
 }
 
 /**
  * WeChat payment.
  *
- * @param WeChatPayOptions
+ * @param options WeChatPayOptions
  * @return WeChatPayResult
  */
 export interface WeChatPay {
@@ -118,7 +116,7 @@ export interface WeChatPay {
 }
 
 /**
- * Order options.
+ * Payment order options.
  */
 export interface OrderOptions {
   /**
@@ -132,7 +130,7 @@ export interface OrderOptions {
   outTradeNo: string;
 
   /**
-   * Order expiration time.
+   * Trading end time.
    */
   timeExpire?: string;
 
@@ -142,7 +140,7 @@ export interface OrderOptions {
   attach?: string;
 
   /**
-   * Notification URL address.
+   * Notification URL.
    */
   notifyUrl: string;
 
@@ -153,31 +151,31 @@ export interface OrderOptions {
 }
 
 /**
- * Payment amount.
+ * Pay order amount options.
  */
 export interface AmountOptions {
   /**
-   * Amount.
+   * The total amount of the order in cents.
    */
   total: number;
 
   /**
-   * Currency.
+   * Currency type.
    */
   currency?: string;
 }
 
 /**
- * Payment scenario information options.
+ * Payment scenario description.
  */
 export interface SceneInfoOptions {
   /**
-   * Client IP.
+   * User terminal IP.
    */
   payerClientIp: string;
 
   /**
-   * Merchant device ID.
+   * Merchant-side device number.
    */
   deviceId?: string;
 }

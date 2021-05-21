@@ -7,7 +7,7 @@ import * as sinon from 'sinon';
 import {weChatPay} from '../src/we_chat_pay';
 
 describe('test/html5Pay.test.ts', () => {
-  it('should be the result of obtaining a payment order', async () => {
+  it('should be HTML5 payment', async () => {
     sinon.stub(fetch, 'fetch').resolves({
       status: 200,
       data: {
