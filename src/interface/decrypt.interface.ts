@@ -28,17 +28,15 @@ export interface DecryptOptions {
   nonce: string;
 
   /**
-   * Whether to format as JSON.
-   *
-   * Default:false
+   * Whether to format to JSON. default is false.
    */
   formatJson?: boolean;
 }
 
 /**
- * Initialize decryption.
+ * Initialize the decryption function.
  *
- * @param merchantKey Merchant key.
+ * @param merchantKey WeChat merchant key.
  * @return Decrypt
  */
 export interface InitDecrypt {

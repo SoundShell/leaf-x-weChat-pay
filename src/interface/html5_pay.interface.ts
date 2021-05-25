@@ -6,7 +6,7 @@ import {
 } from './we_chat_pay.interface';
 
 /**
- * HTML5 payment scenario information.
+ * Options for HTML5 payment scenario information.
  *
  * @extends SceneInfoOptions
  */
@@ -23,13 +23,13 @@ export interface Html5SceneInfoOptions extends SceneInfoOptions {
 }
 
 /**
- * Get HTML5 payment options.
+ * Get options for HTML5 payment.
  *
  * @extends OrderOptions
  */
 export interface GetHtml5PayOptions extends OrderOptions {
   /**
-   * Payment amount.
+   * Total amount of payment.
    */
   amount: AmountOptions;
 
@@ -40,17 +40,17 @@ export interface GetHtml5PayOptions extends OrderOptions {
 }
 
 /**
- * Get HTML5 payment result.
+ * Get the result of HTML5 payment.
  */
 export interface GetHtml5PayResult {
   /**
-   * Payment URL.
+   * URL of the payment.
    */
   url: string;
 }
 
 /**
- * Initialize to get HTML5 payment.
+ * Initialize the function to get HTML5 payment.
  *
  * @param options WeChatPayOptions
  * @return GetHtml5Pay

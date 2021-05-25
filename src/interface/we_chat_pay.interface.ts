@@ -7,11 +7,11 @@ import {ShowPay} from './show_pay.interface';
 import {ValidateResponseSign} from './token.interface';
 
 /**
- * WeChat payment options.
+ * WeChat payment API options.
  */
 export interface WeChatPayOptions {
   /**
-   * Application ID.
+   * WeChat application ID.
    */
   appId?: string;
 
@@ -21,19 +21,17 @@ export interface WeChatPayOptions {
   publicAppId?: string;
 
   /**
-   * Merchant ID.
+   * WeChat merchant ID.
    */
   merchantId: string;
 
   /**
-   * Merchant key.
+   * WeChat merchant key.
    */
   merchantKey: string;
 
   /**
-   * Encryption algorithm mode.
-   *
-   * Default: WECHATPAY2-SHA256-RSA2048
+   * Encryption algorithm mode. default is WECHATPAY2-SHA256-RSA2048.
    */
   schema?: string;
 
@@ -53,29 +51,28 @@ export interface WeChatPayOptions {
   serialNo: string;
 
   /**
-   * Request URL.
+   * URL of the request.
    */
   url?: string;
 
   /**
-   * Request timeout, in milliseconds.
-   *
-   * Default:3000ms
+   * Set the request timeout in milliseconds. The default timeout is 3000
+   * milliseconds.
    */
   timeout?: number;
 }
 
 /**
- * WeChat payment result.
+ * The result of WeChat payment API.
  */
 export interface WeChatPayResult {
   /**
-   * Get application payments.
+   * Get application payment.
    */
   readonly getAppPay: GetAppPay;
 
   /**
-   * Get application payments.
+   * Get HTML5 payment.
    */
   readonly getHtml5Pay: GetHtml5Pay;
 
@@ -85,12 +82,12 @@ export interface WeChatPayResult {
   readonly getJavascriptApiPay: GetJavascriptApiPay;
 
   /**
-   * Get a public key certificate.
+   * Get public key certificate.
    */
   readonly getPublicKeyCertificate: GetPublicKeyCertificate;
 
   /**
-   * Show payment.
+   * Show payment details.
    */
   readonly showPay: ShowPay;
 
@@ -106,7 +103,7 @@ export interface WeChatPayResult {
 }
 
 /**
- * WeChat payment.
+ * WeChat payment API.
  *
  * @param options WeChatPayOptions
  * @return WeChatPayResult
@@ -116,7 +113,7 @@ export interface WeChatPay {
 }
 
 /**
- * Payment order options.
+ * WeChat payment options for orders.
  */
 export interface OrderOptions {
   /**
@@ -151,7 +148,7 @@ export interface OrderOptions {
 }
 
 /**
- * Pay order amount options.
+ * The options to pay the order amount by WeChat.
  */
 export interface AmountOptions {
   /**
@@ -175,7 +172,7 @@ export interface SceneInfoOptions {
   payerClientIp: string;
 
   /**
-   * Merchant-side device number.
+   * Merchant-side device ID.
    */
   deviceId?: string;
 }

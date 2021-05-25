@@ -34,7 +34,7 @@ export interface WeChatPublicKeyCertificate extends PublicKeyCertificate {
 }
 
 /**
- * Get public key certificate result.
+ * Get the result of the public key certificate.
  *
  * @extends PublicKeyCertificate
  */
@@ -46,7 +46,7 @@ export interface GetPublicKeyCertificateResult extends PublicKeyCertificate {
 }
 
 /**
- * Initialize get the public key certificate.
+ * Initialize the function to get the public key certificate.
  *
  * @param options WeChatPayOptions
  * @return GetPublicKeyCertificate
@@ -56,7 +56,7 @@ export interface InitGetPublicKeyCertificate {
 }
 
 /**
- * Get a public key certificate.
+ * Get public key certificate.
  *
  * @return Promise<GetPublicKeyCertificateResult[]>
  */

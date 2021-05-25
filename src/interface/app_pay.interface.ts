@@ -7,13 +7,13 @@ import {
 } from './we_chat_pay.interface';
 
 /**
- * Get application payment options.
+ * Get the options to application payment.
  *
  * @extends OrderOptions
  */
 export interface GetAppPayOptions extends OrderOptions {
   /**
-   * Payment amount.
+   * Total amount of payment.
    */
   amount: AmountOptions;
 
@@ -24,34 +24,34 @@ export interface GetAppPayOptions extends OrderOptions {
 }
 
 /**
- * Get application payment result.
+ * Get the result of the application payment.
  *
  * @extends GetTokenResult
  */
 export interface GetAppPayResult extends GetTokenResult {
   /**
-   * Application ID.
+   * WeChat application ID.
    */
   appId: string;
 
   /**
-   * Merchant ID.
+   * WeChat merchant ID.
    */
   partnerId: string;
 
   /**
-   * Prepaid session ID.
+   * WeChat prepayment order ID.
    */
   prepayId: string;
 
   /**
-   * Order details extension string.
+   * WeChat order details extension string.
    */
   package: string;
 }
 
 /**
- * Initialize to get application payments.
+ * Initialize the function to get the application payment.
  *
  * @param options WeChatPayOptions
  * @return GetAppPay
@@ -61,7 +61,7 @@ export interface InitGetAppPay {
 }
 
 /**
- * Get application payments.
+ * Get application payment.
  *
  * @param options GetAppPayOptions
  * @return Promise<GetAppPayResult>

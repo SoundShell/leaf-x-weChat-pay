@@ -11,7 +11,7 @@ export interface GenerateNonceString {
 }
 
 /**
- * Formatting key options.
+ * Options for format key.
  */
 export interface FormatSecretKeyOptions {
   /**
@@ -26,7 +26,7 @@ export interface FormatSecretKeyOptions {
 }
 
 /**
- * Formatting key.
+ * Format key.
  *
  * @param options FormatSecretKeyOptions
  * @return string
@@ -36,7 +36,7 @@ export interface FormatSecretKey {
 }
 
 /**
- * Signature options.
+ * The options to sign.
  */
 export interface SignOptions {
   /**
@@ -61,7 +61,7 @@ export interface Sign {
 }
 
 /**
- * Get request token options.
+ * The options to get the request token.
  */
 export interface GetRequestTokenOptions {
   /**
@@ -70,7 +70,7 @@ export interface GetRequestTokenOptions {
   method: RequestOptions['method'];
 
   /**
-   * Request URL.
+   * URL of the request.
    */
   url: string;
 
@@ -85,7 +85,7 @@ export interface GetRequestTokenOptions {
   privateKey: string;
 
   /**
-   * Merchant ID.
+   * WeChat merchant ID.
    */
   merchantId: string;
 
@@ -111,16 +111,16 @@ export interface GetRequestToken {
 }
 
 /**
- * Get the Javascript API payment token options.
+ * Options to get a Javascript API payment token.
  */
 export interface GetJavascriptApiPayTokenOptions {
   /**
-   * Application ID.
+   * WeChat application ID.
    */
   appId: string;
 
   /**
-   * Prepaid session ID string.
+   * WeChat prepayment order ID. string.
    */
   prepayString: string;
 
@@ -136,7 +136,7 @@ export interface GetJavascriptApiPayTokenOptions {
 }
 
 /**
- * Get token result.
+ * Get the result of the token.
  */
 export interface GetTokenResult {
   /**
@@ -156,7 +156,7 @@ export interface GetTokenResult {
 }
 
 /**
- * Get Javascript Api payment token.
+ * Get Javascript API payment token.
  *
  * @param options GetJavascriptApiPayTokenOptions
  * @return GetTokenResult
@@ -166,16 +166,16 @@ export interface GetJavascriptApiPayToken {
 }
 
 /**
- * Get the application payment token options.
+ * Get the options to apply a payment token.
  */
 export interface GetAppTokenPayOptions {
   /**
-   * Application ID.
+   * WeChat application ID.
    */
   appId: string;
 
   /**
-   * Prepaid session ID.
+   * WeChat prepayment order ID.
    */
   prepayId: string;
 
@@ -201,7 +201,7 @@ export interface GetAppPayToken {
 }
 
 /**
- * Validate signature options.
+ * The options to Validate the signature.
  */
 export interface ValidateSignOptions {
   /**
@@ -221,7 +221,7 @@ export interface ValidateSignOptions {
 }
 
 /**
- * Validate signature.
+ * Validate the signature.
  *
  * @param options ValidateSignOptions
  * @return boolean
@@ -261,7 +261,7 @@ export interface ValidateResponseSignOptions {
 }
 
 /**
- * Initialize the validate response signature.
+ * Initialize the function that validates the response signature.
  *
  * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponseSign

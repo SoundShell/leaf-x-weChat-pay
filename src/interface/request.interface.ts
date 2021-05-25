@@ -2,13 +2,11 @@ import {HandleResponseResult} from '@leaf-x/fetch';
 import {WeChatPayOptions} from './we_chat_pay.interface';
 
 /**
- * Request options.
+ * The request options.
  */
 export interface RequestOptions {
   /**
-   * HTTP request method.
-   *
-   * Default:GET
+   * HTTP request method. default is GET.
    */
   method?:
     | 'POST'
@@ -28,7 +26,7 @@ export interface RequestOptions {
   headers?: Record<string, string>;
 
   /**
-   * Request URL.
+   * URL of the request.
    */
   url: string;
 
@@ -38,15 +36,13 @@ export interface RequestOptions {
   body?: unknown;
 
   /**
-   * Whether the WeChat public request.
-   *
-   * Default:false
+   * Whether the WeChat public request. default is false.
    */
   publicApp?: boolean;
 }
 
 /**
- * Initialization request.
+ * The function that initialize the request.
  *
  * @param options WeChatPayOptions
  * @return Request
@@ -66,7 +62,7 @@ export interface Request {
 }
 
 /**
- * Initialize the validation response.
+ * Initialize the function that validation the response.
  *
  * @param publicCertificateDir Public key certificate directory.
  * @return ValidateResponse
