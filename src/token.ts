@@ -152,9 +152,10 @@ export const initValidateResponseSign: InitValidateResponseSign =
         certificate = certificateItem.publicKeyRaw.toString('base64');
       }
 
-      const unlink = new Date(certificateItem.validTo).valueOf() <= Date.now();
+      const isUnlink =
+        new Date(certificateItem.validTo).valueOf() <= Date.now();
 
-      if (unlink) {
+      if (isUnlink) {
         fs.unlinkSync(path);
       }
     }

@@ -39,17 +39,17 @@ export const initRequest: InitRequest =
     timeout = 3000,
   }) =>
   async ({method = 'GET', url, body, headers, publicApp = false}) => {
-    const json = typeof body === 'object' && body !== null;
-    const jsonData = body && json;
+    const isObject = typeof body === 'object' && body !== null;
+    const isObjectData = body && isObject;
 
-    if (jsonData) {
+    if (isObjectData) {
       Object.assign(body, {
         appid: publicApp ? publicAppId : appId,
         mchid: merchantId,
       });
     }
 
-    const data = jsonData
+    const data = isObjectData
       ? JSON.stringify(
           snakeCaseKeys(body as Record<string, unknown>, {deep: true})
         )

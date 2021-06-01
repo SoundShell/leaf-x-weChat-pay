@@ -1,6 +1,6 @@
 {
   "name": "@leaf-x/we-chat-pay",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "main": "./dist/src/index.js",
   "author": "sound shell <sound_shell@outlook.com>",
   "description": "WeChat payment V3.0.0 API.",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@fidm/x509": "^1.2.1",
-    "@leaf-x/fetch": "^1.4.8",
+    "@leaf-x/fetch": "^1.4.9",
     "camelcase-keys": "^6.2.2",
     "snakecase-keys": "^3.2.1"
   },
